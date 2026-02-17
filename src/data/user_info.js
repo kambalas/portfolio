@@ -135,6 +135,25 @@ const info = {
   // ============ CERTIFICATES ============
   certificates: [],
 
+  // ============ METRICS ============
+  metrics: [
+    {
+      value: '5+',
+      label: 'Projects Completed',
+      description: 'Production-grade apps shipped to real clients.',
+    },
+    {
+      value: '4+',
+      label: 'Years of Experience',
+      description: 'Building software across fintech, SRE, and web.',
+    },
+    {
+      value: '5+',
+      label: 'Clients',
+      description: 'From startups to enterprise like Coca-Cola',
+    },
+  ],
+
   // ============ CONTACT ============
   contact: {
     title: "Let's Get in Touch",

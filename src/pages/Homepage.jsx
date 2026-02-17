@@ -10,6 +10,7 @@ import Contact from "../components/sections/Contact.jsx";
 import Footer from "../components/sections/Footer.jsx";
 import EducationAndExperience from "../components/sections/EducationAndExperience.jsx";
 import Skills from "../components/sections/Skills.jsx";
+import Metrics from "../components/sections/Metrics.jsx";
 
 function Homepage() {
   const { theme, switchTheme } = useContext(AppContext);
@@ -25,6 +26,7 @@ function Homepage() {
         <ToggleTheme switchTheme={switchTheme} />
 
         <Hero />
+        <Metrics />
         <Projects />
 				<EducationAndExperience />
         <Skills />
