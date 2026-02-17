@@ -10,7 +10,7 @@ function Contact() {
       {/* =========== TITLE =========== */}
       <h4 className="text-5xl font-bold text-zinc-900 dark:text-zinc-100">
         Let&apos;s Get in Touch:{" "}
-        <span className="text-red-800 dark:text-red-500">
+        <span className="text-orange-700 dark:text-orange-400">
           Ways to Connect with Me
         </span>
       </h4>
@@ -27,7 +27,7 @@ function Contact() {
           href={user_info.socials.linkedin}
           className="flex gap-4 text-zinc-600 dark:text-zinc-300 hover:dark:text-zinc-300 hover:text-zinc-700 transition-all duration-300 mt-4"
         >
-          <FaLinkedin className="self-center text-lg text-red-800 dark:text-red-500" />
+          <FaLinkedin className="self-center text-lg text-orange-700 dark:text-orange-400" />
           <span className="self-center">Follow on Linkedin</span>
         </a>
       </div>
@@ -39,7 +39,7 @@ function Contact() {
         href={`mailto:${user_info.main.email}`}
         className="flex mt-6 text-zinc-600 dark:text-zinc-300 hover:dark:text-zinc-300 gap-4 hover:text-zinc-700 transition-all duration-30"
       >
-        <MdEmail className="self-center text-lg text-red-800 dark:text-red-500" />
+        <MdEmail className="self-center text-lg text-orange-700 dark:text-orange-400" />
         <span>{user_info.main.email}</span>
       </a>
     </section>

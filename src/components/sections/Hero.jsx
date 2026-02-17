@@ -17,10 +17,9 @@ function Hero() {
 
           {/* =========== TOOLTIP TEXT =========== */}
           <span
-            className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity  inline-block absolute invisible z-10 py-1 px-2 bg-white border dark:border-zinc-800 dark:bg-zinc-950 text-xs font-medium text-zinc-950 dark:text-white rounded shadow-sm"
+            className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity  inline-block absolute invisible z-10 py-1 px-2 bg-white border dark:border-zinc-700 dark:bg-zinc-800 text-xs font-medium text-zinc-900 dark:text-white rounded shadow-sm"
             role="tooltip"
           >
-            Hello! 👋 How are you doing? 🤔
           </span>
         </div>
         <div className="flex gap-2 align-center flex-wrap md:flex-nowrap">
@@ -37,13 +36,13 @@ function Hero() {
             <div className="flex gap-2 mt-6">
               <a
                 href="#projects"
-                className="px-6 py-3 border border-black hover:bg-red-800 hover:text-white hover:border-red-800 dark:border-white font-medium transition-all duration-300"
+                className="px-6 py-3 border border-black hover:bg-orange-700 hover:text-white hover:border-orange-700 dark:border-white font-medium transition-all duration-300"
               >
                 Projects
               </a>
               <a
                 href="#contact"
-                className="px-6 py-3 hover:text-red-800 dark:hover:text-red-500 transition-all duration-300 flex gap-3 hover:gap-4"
+                className="px-6 py-3 hover:text-orange-700 dark:hover:text-orange-400 transition-all duration-300 flex gap-3 hover:gap-4"
               >
                 <span className="self-center font-medium">Contact</span>
                 <IoIosArrowForward className="self-center" />

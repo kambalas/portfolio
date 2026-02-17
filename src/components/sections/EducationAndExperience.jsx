@@ -15,7 +15,7 @@ function EducationAndExperience() {
       <div className="w-full md:w-[80%]">
         {/* =========== EDUCATION TITLE =========== */}
         <h4 className="text-xl dark:text-white mb-4 font-bold flex gap-2 items-center">
-          <FaLandmark className="text-xl text-red-800 dark:text-red-500" />
+          <FaLandmark className="text-xl text-orange-700 dark:text-orange-400" />
           Education
         </h4>
 
@@ -63,7 +63,7 @@ function EducationAndExperience() {
         {user_info.certificates?.length > 0 && (
           <>
             <h4 className="text-xl dark:text-white mt-6 font-bold flex gap-2 items-center">
-              <PiCertificateFill className="text-2xl text-red-800 dark:text-red-500" />
+              <PiCertificateFill className="text-2xl text-orange-700 dark:text-orange-400" />
               Certificates
             </h4>
 
@@ -89,7 +89,7 @@ function EducationAndExperience() {
                               href={cert.link}
                               target="_blank"
                               rel="noreferrer"
-                              className="hs-tooltip-toggle text-center text-gray-800 dark:text-white hover:text-red-800 hover:dark:text-red-500"
+                              className="hs-tooltip-toggle text-center text-gray-800 dark:text-white hover:text-orange-700 hover:dark:text-orange-400"
                             >
                               {/* =========== CERTIFICATE NAME =========== */}
                               <p className=" transition duration-700 px-6 font-bold">
@@ -103,7 +103,7 @@ function EducationAndExperience() {
 
                             {/* =========== TOOLTIP TEXT =========== */}
                             <span
-                              className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border dark:border-zinc-800 dark:bg-zinc-950 text-xs font-medium dark:text-white rounded shadow-sm"
+                              className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-white border dark:border-zinc-700 dark:bg-zinc-800 text-xs font-medium dark:text-white rounded shadow-sm"
                               role="tooltip"
                             >
                               Open Certificate
@@ -166,7 +166,7 @@ function EducationAndExperience() {
                 {user_info.certificates.map((cert, index) => {
                   return (
                     <span
-                      className="hs-carousel-active:bg-red-700 hs-carousel-active:border-red-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-red-500 dark:hs-carousel-active:border-red-500"
+                      className="hs-carousel-active:bg-orange-700 hs-carousel-active:border-orange-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-orange-500 dark:hs-carousel-active:border-orange-500"
                       key={index}
                     ></span>
                   );
@@ -181,7 +181,7 @@ function EducationAndExperience() {
       <div className="w-full">
         {/* =========== EXPERIENCE TITLE =========== */}
         <h4 className="text-xl dark:text-white mb-4 font-bold flex gap-2 items-center">
-          <FaBuildingUser className="text-2xl text-red-800 dark:text-red-500" />
+          <FaBuildingUser className="text-2xl text-orange-700 dark:text-orange-400" />
           Experience
         </h4>
 
@@ -226,7 +226,7 @@ function EducationAndExperience() {
                         return (
                           <li className="flex space-x-3" key={index}>
                             <svg
-                              className="flex-shrink-0 size-4 mt-0.5 text-red-800 dark:text-red-500"
+                              className="flex-shrink-0 size-4 mt-0.5 text-orange-700 dark:text-orange-400"
                               xmlns="http://www.w3.org/2000/svg"
                               width="24"
                               height="24"

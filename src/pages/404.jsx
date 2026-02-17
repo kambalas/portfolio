@@ -5,8 +5,8 @@ function NotFound() {
     const navigate = useNavigate();
 
     return (
-        <div className="bg-zinc-50 dark:bg-zinc-900">
-            <div className="md:max-w-[1200px] mx-auto h-full border-x border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-950">
+        <div className="bg-zinc-100 dark:bg-zinc-800">
+            <div className="md:max-w-[1200px] mx-auto h-full border-x border-zinc-100 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900">
                 <div className='flex h-screen justify-center px-6'>
                     <div className='self-center text-zinc-900 dark:text-zinc-300'>
                         <div className='flex text-5xl justify-center font-bold gap-4'>
@@ -20,7 +20,7 @@ function NotFound() {
                             not found on this server.
                         </div>
                         <div className='text-center mt-6'>
-                            <button onClick={() => navigate("/")} className='bg-red-800 hover:bg-red-700 text-white px-6 py-4 rounded-xl'>Go back to homepage</button>
+                            <button onClick={() => navigate("/")} className='bg-orange-700 hover:bg-orange-600 text-white px-6 py-4 rounded-xl'>Go back to homepage</button>
                         </div>
                     </div>
                 </div>
