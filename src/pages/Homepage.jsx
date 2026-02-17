@@ -11,6 +11,7 @@ import Footer from "../components/sections/Footer.jsx";
 import EducationAndExperience from "../components/sections/EducationAndExperience.jsx";
 import Skills from "../components/sections/Skills.jsx";
 import Metrics from "../components/sections/Metrics.jsx";
+import LogoStrip from "../components/sections/LogoStrip.jsx";
 
 function Homepage() {
   const { theme, switchTheme } = useContext(AppContext);
@@ -27,6 +28,7 @@ function Homepage() {
 
         <Hero />
         <Metrics />
+        <LogoStrip />
         <Projects />
 				<EducationAndExperience />
         <Skills />

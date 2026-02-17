@@ -135,6 +135,14 @@ const info = {
   // ============ CERTIFICATES ============
   certificates: [],
 
+  // ============ BRANDS / LOGO STRIP ============
+  brands: [
+    'Java', 'C#', 'Go', 'Python', 'TypeScript', 'JavaScript',
+    'React', 'Angular', 'Spring', '.NET', 'NodeJS',
+    'PostgreSQL', 'MongoDB', 'MySQL',
+    'Docker', 'Kubernetes', 'AWS', 'Azure',
+  ],
+
   // ============ METRICS ============
   metrics: [
     {
