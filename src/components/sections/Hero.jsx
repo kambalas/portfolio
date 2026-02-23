@@ -10,7 +10,7 @@ function Hero() {
       <div className="self-center">
         <div className="hs-tooltip [--placement:right] w-20 hs-tooltip-toggle">
           <img
-            src={user_info.main.photo}
+            src={`${import.meta.env.BASE_URL}${user_info.main.photo}`}
             className="rounded-full mb-6 lg:hidden"
             alt="User Photo"
           />
@@ -53,7 +53,7 @@ function Hero() {
           <div className="hidden lg:block w-[480px] self-center">
             <img
               className="rounded-[15%] transform rotate-3"
-              src={user_info.main.photo}
+              src={`${import.meta.env.BASE_URL}${user_info.main.photo}`}
               alt="User Photo"
             />
           </div>

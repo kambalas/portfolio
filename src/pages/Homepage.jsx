@@ -12,6 +12,7 @@ import EducationAndExperience from "../components/sections/EducationAndExperienc
 import Skills from "../components/sections/Skills.jsx";
 import Metrics from "../components/sections/Metrics.jsx";
 import LogoStrip from "../components/sections/LogoStrip.jsx";
+import Services from "../components/sections/Services.jsx";
 
 function Homepage() {
   const { theme, switchTheme } = useContext(AppContext);
@@ -29,6 +30,7 @@ function Homepage() {
         <Hero />
         <Metrics />
         <LogoStrip />
+        <Services />
         <Projects />
 				<EducationAndExperience />
         <Skills />

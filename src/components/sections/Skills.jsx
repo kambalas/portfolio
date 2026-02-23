@@ -1,130 +1,125 @@
-import { BiLogoNetlify, BiLogoPostgresql, BiLogoTypescript } from "react-icons/bi";
-import { CgVercel } from "react-icons/cg";
-import { DiGithubAlt, DiMongodb, DiJava, DiJira } from "react-icons/di";
-import { FaDocker, FaHtml5, FaCss3Alt, FaNodeJs, FaPython, FaReact, FaVuejs, FaGitAlt, FaGitlab, FaAngular } from "react-icons/fa6";
+import { BiLogoPostgresql, BiLogoTypescript } from "react-icons/bi";
+import { DiMongodb, DiJava, DiJira } from "react-icons/di";
+import { FaDocker, FaHtml5, FaCss3Alt, FaNodeJs, FaPython, FaReact, FaAngular } from "react-icons/fa6";
 import { FaAws, FaMicrosoft } from "react-icons/fa";
 import { IoLogoJavascript } from "react-icons/io";
 import { IoLogoFirebase } from "react-icons/io5";
-import { SiAntdesign, SiExpress, SiFlask, SiJest, SiNuxtdotjs, SiPassport, SiPostman, SiPythonanywhere, SiSequelize, SiTailwindcss, SiTensorflow, SiSpring, SiDotnet, SiKubernetes, SiMysql, SiSqlite, SiApachecassandra, SiNeo4J, SiJenkins,SiGradle, SiApachemaven, SiCplusplus } from "react-icons/si";
+import { SiExpress, SiTailwindcss, SiSpring, SiDotnet, SiKubernetes, SiMysql, SiSqlite, SiApachecassandra, SiNeo4J, SiJenkins, SiGradle, SiApachemaven, SiCplusplus } from "react-icons/si";
 import { VscAzureDevops } from "react-icons/vsc";
+import { TbBrandGolang, TbBrandCSharp } from "react-icons/tb";
 
-import { TbBrandNextjs, TbBrandGolang, TbBrandCSharp  } from "react-icons/tb";
+const sections = [
+  {
+    title: 'Languages',
+    description: 'The programming languages I reach for across backend, scripting, and systems work.',
+    skills: [
+      { icon: <DiJava />, name: 'Java' },
+      { icon: <TbBrandCSharp />, name: 'C#' },
+      { icon: <SiCplusplus />, name: 'C++' },
+      { icon: <IoLogoJavascript />, name: 'JavaScript' },
+      { icon: <BiLogoTypescript />, name: 'TypeScript' },
+      { icon: <FaPython />, name: 'Python' },
+      { icon: <TbBrandGolang />, name: 'GoLang' },
+    ],
+  },
+  {
+    title: 'Frontend',
+    description: 'Tools and frameworks for building responsive, modern user interfaces.',
+    skills: [
+      { icon: <FaHtml5 />, name: 'HTML' },
+      { icon: <FaCss3Alt />, name: 'CSS' },
+      { icon: <FaReact />, name: 'React' },
+      { icon: <FaAngular />, name: 'Angular' },
+      { icon: <SiTailwindcss />, name: 'Tailwind CSS' },
+    ],
+  },
+  {
+    title: 'Backend & Frameworks',
+    description: 'Server-side runtimes and frameworks for APIs, microservices, and data pipelines.',
+    skills: [
+      { icon: <SiSpring />, name: 'Spring' },
+      { icon: <SiDotnet />, name: '.NET' },
+      { icon: <FaNodeJs />, name: 'NodeJS' },
+      { icon: <SiExpress />, name: 'Express' },
+    ],
+  },
+  {
+    title: 'Databases',
+    description: 'Relational, document, and graph stores for structured and unstructured data.',
+    skills: [
+      { icon: <SiMysql />, name: 'MySQL' },
+      { icon: <SiSqlite />, name: 'SQLite' },
+      { icon: <BiLogoPostgresql />, name: 'PostgreSQL' },
+      { icon: <DiMongodb />, name: 'MongoDB' },
+      { icon: <SiApachecassandra />, name: 'Cassandra' },
+      { icon: <SiNeo4J />, name: 'Neo4j' },
+    ],
+  },
+  {
+    title: 'DevOps & Cloud',
+    description: 'Infrastructure, CI/CD pipelines, and cloud platforms for reliable delivery.',
+    skills: [
+      { icon: <FaDocker />, name: 'Docker' },
+      { icon: <SiKubernetes />, name: 'Kubernetes' },
+      { icon: <SiJenkins />, name: 'Jenkins' },
+      { icon: <FaAws />, name: 'AWS' },
+      { icon: <FaMicrosoft />, name: 'Azure' },
+      { icon: <IoLogoFirebase />, name: 'Firebase' },
+      { icon: <VscAzureDevops />, name: 'Azure DevOps' },
+      { icon: <SiGradle />, name: 'Gradle' },
+      { icon: <SiApachemaven />, name: 'Maven' },
+      { icon: <DiJira />, name: 'Jira' },
+    ],
+  },
+];
 
 function Skills() {
   return (
-    <section id="skills" className="mx-4 lg:mx-20">
-      {/* =========== SKILLS TITLE =========== */}
-      <h4 className="text-4xl font-bold text-center mt-20 dark:text-white">
-        Technologies I Use.
-      </h4>
-      {/* =========== LIST OF SKILLS =========== */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4 mt-8">
-
-        {/* Languages */}
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <DiJava className="text-2xl" /> Java
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <TbBrandCSharp className="text-2xl" /> C#
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiCplusplus className="text-2xl" /> C++
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <IoLogoJavascript className="text-2xl" /> JavaScript
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <BiLogoTypescript className="text-2xl" /> TypeScript
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaPython className="text-2xl" /> Python
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <TbBrandGolang className="text-2xl" /> GoLang
-        </span>
-
-        {/* Web core */}
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaHtml5 className="text-2xl" /> HTML
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaCss3Alt className="text-2xl" /> CSS
-        </span>
-
-        {/* Frameworks */}
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiSpring className="text-2xl" /> Spring
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiDotnet className="text-2xl" /> .NET
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaAngular className="text-2xl" /> Angular
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaReact className="text-2xl" /> React
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaNodeJs className="text-2xl" /> NodeJS
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiExpress className="text-2xl" /> Express
-        </span>
-
-        {/* Databases */}
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiMysql className="text-2xl" /> MySQL
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiSqlite className="text-2xl" /> SQLite
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <BiLogoPostgresql className="text-2xl" /> PostgreSQL
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <DiMongodb className="text-2xl" /> MongoDB
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiApachecassandra className="text-2xl" /> Cassandra
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiNeo4J className="text-2xl" /> Neo4j
-        </span>
-
-        {/* DevOps / Tools */}
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaDocker className="text-2xl" /> Docker
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiKubernetes className="text-2xl" /> Kubernetes
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiJenkins className="text-2xl" /> Jenkins
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <DiJira className="text-2xl" /> Jira
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <VscAzureDevops className="text-2xl" /> Azure DevOps
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiGradle className="text-2xl" /> Gradle
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <SiApachemaven className="text-2xl" /> Maven
-        </span>
-
-        {/* Cloud */}
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaAws className="text-2xl" /> AWS
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <FaMicrosoft className="text-2xl" /> Microsoft Azure
-        </span>
-        <span className="inline-flex items-center justify-between gap-x-1.5 py-4 px-3 hover:-translate-y-1.5 transition-translate duration-500 rounded-xl font-medium bg-orange-100 text-orange-700 dark:bg-orange-500/30 dark:text-orange-400">
-          <IoLogoFirebase className="text-2xl" /> Firebase
-        </span>
+    <section id="skills" className="px-6 lg:px-24 py-16 space-y-14">
+      {/* Section heading */}
+      <div className="text-center">
+        <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+          Technologies I Use
+        </h2>
+        <p className="mt-2 text-sm sm:text-base text-zinc-500 dark:text-zinc-400">
+          Languages, frameworks, and tools across the full stack.
+        </p>
+      </div>
+      {sections.map((section, si) => (
+        <div key={si}>
+          {/* Section header */}
+          <div className="mb-6">
+            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+              {section.title}
+            </h3>
+            <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
+              {section.description}
+            </p>
+            <div className="mt-3 h-px w-16 bg-red-500/60 dark:bg-red-400/60 rounded-full" />
           </div>
+
+          {/* Skills grid */}
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
+            {section.skills.map((skill, ki) => (
+              <div
+                key={ki}
+                className="flex flex-col items-center justify-center gap-2 p-3 rounded-xl
+                  bg-orange-50 border border-orange-100
+                  dark:bg-orange-500/10 dark:border-orange-500/20
+                  hover:-translate-y-1 hover:shadow-md hover:border-orange-300 dark:hover:border-orange-500/40
+                  transition-all duration-300 group cursor-default aspect-square"
+              >
+                <span className="text-3xl text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform duration-300">
+                  {skill.icon}
+                </span>
+                <span className="text-[10px] sm:text-xs font-medium text-zinc-600 dark:text-zinc-400 text-center leading-tight">
+                  {skill.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
     </section>
   );
 }

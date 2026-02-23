@@ -42,7 +42,7 @@ function EducationAndExperience() {
                   <h3 className="flex items-center gap-x-2 font-semibold text-zinc-800 dark:text-white">
                     <img
                       className="w-9 h-9 rounded-full"
-                      src={edu.image}
+                      src={`${import.meta.env.BASE_URL}${edu.image}`}
                       alt="School Logo"
                     />
                     <div className="leading-5">
@@ -208,7 +208,7 @@ function EducationAndExperience() {
                     <h3 className="flex items-center gap-x-2 font-semibold text-zinc-800 dark:text-white">
                       <img
                         className="w-9 rounded-full"
-                        src={exp.image}
+                        src={`${import.meta.env.BASE_URL}${exp.image}`}
                         alt="Company Logo"
                       />
                       <div className="leading-5">

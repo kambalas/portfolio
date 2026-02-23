@@ -3,12 +3,15 @@ import Project from "../Project.jsx";
 
 function Projects() {
   return (
-    <section
-      id="projects"
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12 lg:px-16"
-    >
-      {user_info.projects.map((project, index) => {
-        return (
+    <section id="projects" className="mt-8 px-6 lg:px-24">
+      {/* =========== SECTION TITLE =========== */}
+      <h4 className="text-4xl font-bold text-center mb-10 dark:text-white">
+        Projects.
+      </h4>
+
+      {/* =========== PROJECTS GRID =========== */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+        {user_info.projects.map((project, index) => (
           <Project
             key={index}
             title={project.title}
@@ -16,9 +19,11 @@ function Projects() {
             technologies={project.technologies}
             github={project.github}
             link={project.link}
+            image={project.image}
+            slug={project.slug}
           />
-        );
-      })}
+        ))}
+      </div>
     </section>
   );
 }
