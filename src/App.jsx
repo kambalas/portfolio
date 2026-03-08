@@ -29,7 +29,7 @@ function App() {
 
   return (
     <AppContext.Provider value={{ theme, switchTheme }}>
-      <BrowserRouter basename="/portfolio">
+      <BrowserRouter>
         {/* Fires a GA4 page_view on every route change, including UTM params */}
         <RouteTracker />
         <Routes>

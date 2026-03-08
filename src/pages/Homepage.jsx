@@ -7,6 +7,7 @@ import ToggleTheme from "../components/ToggleTheme.jsx";
 import Hero from "../components/sections/Hero.jsx";
 import Projects from "../components/sections/Projects.jsx";
 import Contact from "../components/sections/Contact.jsx";
+import ContactForm from "../components/sections/ContactForm.jsx";
 import Footer from "../components/sections/Footer.jsx";
 import EducationAndExperience from "../components/sections/EducationAndExperience.jsx";
 import Skills from "../components/sections/Skills.jsx";
@@ -35,6 +36,7 @@ function Homepage() {
 				<EducationAndExperience />
         <Skills />
         <Contact />
+        <ContactForm />
 
         <hr className="mt-12 border border-zinc-300 dark:border-zinc-800" />
         <Footer theme={theme} />

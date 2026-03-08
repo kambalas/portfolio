@@ -4,7 +4,7 @@ const info = {
     name: 'Ugnius Motiejunas',
     description:
   'AI Engineer building intelligent systems that help businesses automate workflows, unlock insights from data, and operate more efficiently. Combines strong full-stack engineering foundations with hands-on experience in scalable AI and LLM-powered applications.',
-    role: 'Software Engineer',
+    role: 'AI Engineer',
     photo: 'photo.webp',
     email: 'motiejunasugnius@gmail.com',
   },
@@ -21,7 +21,7 @@ const info = {
   // ============ PROJECTS ============
   projects: [
     {
-      title: 'RAG Assistant – YouTube Transcript Pipeline',
+      title: 'AI Assistant - Knowledge Base',
       description:
         'Upload a YouTube video and the system automatically transcribes it, organizes the content, and stores it in a searchable knowledge database. Instead of manually reviewing hours of footage, you can instantly find specific topics, answers, or key moments.',
       technologies:
@@ -290,17 +290,17 @@ const info = {
     {
       value: '5',
       label: 'Projects Completed',
-      description: 'Production-grade apps shipped to real clients.',
+      description: 'Production-grade apps shipped to clients.',
     },
     {
       value: '4+',
       label: 'Years of Experience',
-      description: 'Building software across fintech, SRE, and web.',
+      description: 'Building robust software and AI solutions for 4+ years',
     },
     {
       value: '4',
       label: 'Clients',
-      description: 'From startups to enterprise like Coca-Cola',
+      description: 'From startups to enterprise clients like Coca-Cola',
     },
   ],
 
