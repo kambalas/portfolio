@@ -21,7 +21,7 @@ const info = {
   // ============ PROJECTS ============
   projects: [
     {
-      title: 'AI Assistant - Knowledge Base',
+      title: 'AI Assistant for Meetings & Videos',
       description:
         'Upload a YouTube video and the system automatically transcribes it, organizes the content, and stores it in a searchable knowledge database. Instead of manually reviewing hours of footage, you can instantly find specific topics, answers, or key moments.',
       technologies:
@@ -67,7 +67,7 @@ const info = {
     },
 
     {
-      title: 'LLM-Powered Web Scraper & Evaluator',
+      title: 'AI Market Research Scraper',
       description:
         'An intelligent web scraping system that converts complex web pages into structured, actionable data. Uses large language models to extract meaningful information and relevance ranking to filter high-quality results. Designed for high-volume processing with built-in accuracy evaluation, making it suitable for production environments where data quality and reliability matter.',
       technologies:
@@ -142,6 +142,49 @@ const info = {
           title: 'Email & Social Growth',
           description:
             'Incentivise sign-ups and shares through prize draws, growing owned audiences at a fraction of paid-ad costs.',
+        },
+      ],
+    },
+
+    {
+      title: 'AI Sales chatbot',
+      description:
+        'An intelligent WhatsApp sales assistant built for CIMES, an Argentinian logistics franchise. Cimi attends customers, offers products, and closes sales — automatically, 24/7. Powered by GPT-4o and orchestrated with n8n for instant, human-like responses.',
+      technologies: 'n8n, GPT, WhatsApp Business API, OpenAI',
+      github: '',
+      link: '',
+      image: 'projects/chatbot.png',
+      slug: 'whatsapp-chatbot',
+      details:
+        'Cimi is an AI-powered sales assistant deployed on WhatsApp for CIMES, a logistics franchise in Argentina. It greets customers, identifies whether they are new or returning, presents relevant product options with pricing, and guides them through to purchase — all in natural Spanish conversation. Built with GPT-4o for intelligent dialogue and n8n for workflow automation, Cimi operates 24/7 with instant response times.',
+      features: [
+        'Automated sales conversations via WhatsApp',
+        'GPT-4o powered natural language understanding in Spanish',
+        'New vs. returning customer detection and tailored flows',
+        'Product catalog presentation with live pricing',
+        'Instant 24/7 response with no human intervention needed',
+        'n8n workflow automation for order processing and CRM updates',
+      ],
+      useCases: [
+        {
+          title: 'Automated Sales',
+          description:
+            'Close deals around the clock without sales staff — Cimi handles the full conversation from greeting to order confirmation.',
+        },
+        {
+          title: '24/7 Customer Engagement',
+          description:
+            'Never miss a lead. Customers get instant responses at any hour, increasing conversion rates and customer satisfaction.',
+        },
+        {
+          title: 'Franchise Scaling',
+          description:
+            'Deploy the same sales bot across multiple franchise locations, maintaining consistent service quality without additional headcount.',
+        },
+        {
+          title: 'Lead Qualification',
+          description:
+            'Automatically identify new customers, collect their information, and route high-value prospects to human sales reps.',
         },
       ],
     },
