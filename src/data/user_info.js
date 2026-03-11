@@ -3,8 +3,8 @@ const info = {
   main: {
     name: 'Ugnius Motiejunas',
     description:
-  'AI Engineer building intelligent systems that help businesses automate workflows, unlock insights from data, and operate more efficiently. Combines strong full-stack engineering foundations with hands-on experience in scalable AI and LLM-powered applications.',
-    role: 'AI Engineer',
+  'Full-Stack AI Engineer building intelligent systems that help businesses automate workflows, unlock insights from data, and operate more efficiently. Combines strong full-stack engineering foundations with hands-on experience in scalable AI and LLM-powered applications.',
+    role: 'Full-Stack AI Engineer',
     photo: 'photo.webp',
     email: 'motiejunasugnius@gmail.com',
   },
