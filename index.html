@@ -10,14 +10,15 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
 
   <title>Ugnius Motiejunas | Full-Stack AI Engineer</title>
 
   <!-- Meta Description -->
   <meta name="description"
-    content="Ugnius Motiejunas — Full-Stack AI Engineer. Full-Stack AI engineer with a passion for technology and innovation. Experienced in full-stack development, site reliability, and cloud-native systems." />
+    content="Ugnius Motiejunas. Full-Stack AI Engineer. Full-Stack AI engineer with a passion for technology and innovation. Experienced in full-stack development, site reliability, and cloud-native systems." />
 
   <meta name="keywords"
     content="Ugnius Motiejunas, Ugnius Motiejunas, Full-Stack AI Engineer, Full-Stack Developer, Cloud Native, Site Reliability, Portfolio, Personal Website, Projects, Resume, Contact" />
@@ -33,6 +34,18 @@
 
   <link rel="canonical" href="https://udevelops.com/" />
 
+  <!-- Apply theme before first paint (defaults to dark) to avoid a light flash -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('theme') || 'dark';
+        if (t !== 'light') document.documentElement.classList.add('dark');
+      } catch (e) {
+        document.documentElement.classList.add('dark');
+      }
+    })();
+  </script>
+
   <!-- GitHub Pages SPA redirect handler -->
   <script>
     (function(l) {
@@ -47,8 +60,8 @@
     }(window.location))
   </script>
 
-  <script type="module" crossorigin src="/assets/index-BlyWiZpu.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-B69q9SFU.css">
+  <script type="module" crossorigin src="/assets/index-4g5OFW2h.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-CK2JVwje.css">
 </head>
 
 <body>
