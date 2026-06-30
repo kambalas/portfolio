@@ -2,14 +2,83 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============ WARM EDITORIAL PALETTE (light default) ============ */
 :root {
-  font-family: "Heebo", sans-serif;
+  --paper: #f4f3ee;       /* parchment */
+  --band: #eae8e1;        /* parchment, a touch deeper */
+  --surface: #fbfaf8;
+  --ink: #463f3a;         /* taupe */
+  --muted: #8a817c;       /* grey-olive */
+  --faint: #bcb8b1;       /* silver */
+  --clay: #e0afa0;        /* powder-blush (accent) */
+  --clay-hover: #d2998a;
+  --clay-dark: #e0afa0;
+  --hairline: rgba(70, 63, 58, 0.14);
+  --verified: #3a9d6a;
 
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+}
+
+/* Warm darks rather than pure zinc. The hero band stays dark in both modes. */
+.dark {
+  --paper: #2a2623;       /* deep taupe */
+  --band: #322d29;
+  --surface: #383330;
+  --ink: #f4f3ee;         /* parchment */
+  --muted: #bcb8b1;       /* silver */
+  --faint: #8a817c;       /* grey-olive */
+  --clay: #e0afa0;        /* powder-blush */
+  --clay-hover: #ecc0b3;
+  --clay-dark: #e0afa0;
+  --hairline: rgba(244, 243, 238, 0.12);
+  --verified: #4cb583;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Hanken Grotesk", system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--clay);
+  color: var(--paper);
+}
+
+/* ============ LAYOUT + TYPOGRAPHY HELPERS ============ */
+@layer components {
+  .wrap {
+    max-width: 1180px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  @media (min-width: 768px) {
+    .wrap {
+      padding-left: 52px;
+      padding-right: 52px;
+    }
+  }
+
+  .eyebrow {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--clay);
+  }
 }
 
 /* width */
@@ -20,7 +89,7 @@
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #E76F51
+  background: var(--clay);
 }
 
 /* Logo strip scroll animation */
@@ -31,5 +100,5 @@
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--clay-hover);
 }

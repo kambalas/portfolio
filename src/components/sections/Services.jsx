@@ -1,89 +1,84 @@
-import { VscServerProcess } from 'react-icons/vsc';
-import { TbBrowserCheck } from 'react-icons/tb';
-import { RiRobot2Line } from 'react-icons/ri';
-import { TbMessageChatbot } from 'react-icons/tb';
-import { TbZoomCode } from 'react-icons/tb';
-import { TbChartBar } from 'react-icons/tb';
+import { Layers, Sparkles, AppWindow } from "lucide-react";
 
+// Three focused service themes. Titles, descriptions and tech pills are
+// unchanged data; restyled into the warm editorial card with a line-icon chip.
 const services = [
-    {
-    icon: <TbMessageChatbot className="text-2xl sm:text-3xl text-red-500 dark:text-red-400" />,
-    title: 'AI Customer Chatbots',
+  {
+    icon: Layers,
+    title: "AI Agents",
     description:
-      '24/7 AI chatbots trained on your business data to answer questions instantly, qualify leads, and reduce support workload — without constant manual oversight.',
+      "Autonomous agents that reason over multiple steps, call your tools and APIs, and act on your own business data. RAG-grounded retrieval keeps answers accurate, with human handoff when a decision needs a person.",
+    stack: ["Python", "FastAPI", "OpenAI", "pgvector", "Supabase"],
   },
   {
-    icon: <RiRobot2Line className="text-2xl sm:text-3xl text-red-500 dark:text-red-400" />,
-    title: 'AI Business Assistants',
+    icon: Sparkles,
+    title: "AI Workflow Automation",
     description:
-      'Internal AI assistants that search your company knowledge, retrieve accurate information, and help employees make faster decisions — saving hours every week.',
+      "Automated pipelines that process documents, extract structured data from messy sources, and trigger actions across your existing tools, removing repetitive manual work.",
+    stack: ["Python", "n8n", "Crawl4AI", "OpenAI", "WhatsApp API"],
   },
   {
-    icon: <TbZoomCode className="text-2xl sm:text-3xl text-red-500 dark:text-red-400" />,
-    title: 'AI Workflow Automation',
+    icon: AppWindow,
+    title: "Full-Stack AI Web Applications",
     description:
-      'Automated systems that process documents, extract data, and trigger actions across your tools — eliminating repetitive tasks and reducing costly human errors.',
+      "Production web apps built end to end: fast, responsive interfaces wired to AI-powered backends, with the same engineering rigor I bring to client work.",
+    stack: ["React", "TypeScript", "Vite", "FastAPI", "Supabase"],
   },
-  {
-    icon: <VscServerProcess className="text-2xl sm:text-3xl text-red-500 dark:text-red-400" />,
-    title: 'Custom Business Systems',
-    description:
-      'Secure, scalable systems tailored to your operations. Whether it’s an internal dashboard, admin panel, or full backend platform — built to support growth without breaking as your business scales.',
-  },
-  {
-    icon: <TbBrowserCheck className="text-2xl sm:text-3xl text-red-500 dark:text-red-400" />,
-    title: 'Modern Web Applications',
-    description:
-      'Fast, intuitive web platforms designed for real users. Clean interfaces, strong performance, and seamless user experience — helping you convert visitors into customers and keep teams productive.',
-  },
-  {
-  icon: <TbChartBar className="text-2xl sm:text-3xl text-red-500 dark:text-red-400" />,
-  title: 'AI Data & Insights Systems',
-  description:
-    'Transform your business data into clear dashboards, automated reports, and actionable insights. We build intelligent systems that track performance, detect patterns, and help you make faster, data-driven decisions.',
-}
 ];
 
 function Services() {
   return (
-    <section className="px-6 lg:px-24 py-16">
-      {/* Heading */}
-      <div className="mb-10 text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-          My Services
+    <section id="services" className="scroll-mt-20 bg-band">
+      <div className="wrap py-16">
+        <span className="eyebrow">02 · Services delivered</span>
+        <h2 className="mt-3.5 mb-10 font-serif text-[30px] sm:text-[34px] font-normal text-ink">
+          How I can help.
         </h2>
-        <p className="mt-2 text-sm sm:text-base text-zinc-500 dark:text-zinc-400">
-          What I build and how I can help.
-        </p>
-      </div>
 
-      {/* Cards grid — 1 col → 2 col → 3 col, last row centred */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            className="relative overflow-hidden rounded-2xl p-6 sm:p-8
-              bg-gradient-to-br from-zinc-100 to-zinc-200/80 border border-zinc-200/80
-              dark:from-zinc-800 dark:to-zinc-800/60 dark:border-zinc-700/50
-              hover:-translate-y-1 hover:shadow-lg
-              transition-all duration-300 group"
-          >
-            {/* Icon */}
-            <div className="mb-5 inline-flex p-2.5 rounded-xl bg-red-100 dark:bg-red-500/15 group-hover:scale-110 transition-transform duration-300">
-              {service.icon}
-            </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <div
+                key={index}
+                className="rounded-2xl border border-hairline bg-surface p-8
+                  hover:border-clay transition-colors duration-300"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <span
+                    className="flex items-center justify-center w-[46px] h-[46px] rounded-xl text-clay"
+                    style={{ background: "color-mix(in srgb, var(--clay) 12%, transparent)" }}
+                  >
+                    <Icon size={22} strokeWidth={1.6} />
+                  </span>
+                  <span className="font-serif italic text-[22px] text-faint">
+                    0{index + 1}
+                  </span>
+                </div>
 
-            {/* Title */}
-            <h3 className="text-base sm:text-lg font-bold text-zinc-800 dark:text-zinc-100">
-              {service.title}
-            </h3>
+                <h3 className="font-serif text-[21px] font-medium text-ink">
+                  {service.title}
+                </h3>
+                <p className="mt-2.5 text-[15px] leading-[1.6] text-muted">
+                  {service.description}
+                </p>
 
-            {/* Description */}
-            <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
-              {service.description}
-            </p>
-          </div>
-        ))}
+                {/* Tech pills */}
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {service.stack.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="font-mono text-[11px] font-medium text-clay rounded-full px-2.5 py-1"
+                      style={{ background: "color-mix(in srgb, var(--clay) 10%, transparent)" }}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

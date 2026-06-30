@@ -1,7 +1,14 @@
 import { useState, useRef } from 'react';
-import { MdEmail, MdPerson, MdMessage, MdSend } from 'react-icons/md';
 
 const COOLDOWN_MS = 60_000; // 60 seconds between submissions
+
+const fieldClass =
+  "font-sans text-[15px] px-4 py-3.5 rounded-[10px] bg-surface text-ink " +
+  "border border-hairline placeholder:text-faint " +
+  "focus:outline-none focus:border-clay transition-colors duration-200";
+
+const labelClass =
+  "font-mono text-[10px] uppercase tracking-[0.12em] text-faint";
 
 function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -57,124 +64,88 @@ function ContactForm() {
   };
 
   return (
-    <section id="contact-form" className="mt-16 pt-12 px-6 lg:px-24">
-      <h4 className="text-5xl font-bold text-zinc-900 dark:text-zinc-100">
-        Send Me a{' '}
-        <span className="text-orange-700 dark:text-orange-400">Message</span>
-      </h4>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      {/* Honeypot: invisible to humans, bots auto-fill it */}
+      <input
+        type="text"
+        name="phone"
+        value={honeypot}
+        onChange={(e) => setHoneypot(e.target.value)}
+        autoComplete="off"
+        tabIndex={-1}
+        aria-hidden="true"
+        className="absolute opacity-0 h-0 w-0 overflow-hidden pointer-events-none"
+      />
 
-      <p className="mt-8 leading-7 text-base text-zinc-600 dark:text-zinc-300 font-light">
-        Have a project idea, a question, or just want to say hello? Fill out the
-        form below and I&apos;ll get back to you as soon as possible.
-      </p>
-
-      <form onSubmit={handleSubmit} className="mt-10 space-y-5">
-        {/* Honeypot — invisible to humans, bots auto-fill it */}
-        <input
-          type="text"
-          name="phone"
-          value={honeypot}
-          onChange={(e) => setHoneypot(e.target.value)}
-          autoComplete="off"
-          tabIndex={-1}
-          aria-hidden="true"
-          className="absolute opacity-0 h-0 w-0 overflow-hidden pointer-events-none"
-        />
-
-        {/* Name */}
-        <div className="relative">
-          <MdPerson className="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-zinc-400 dark:text-zinc-500" />
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="flex flex-col gap-1.5">
+          <label className={labelClass} htmlFor="cf-name">Name</label>
           <input
+            id="cf-name"
             type="text"
             name="name"
             required
-            placeholder="Your Name"
+            placeholder="Your name"
             value={form.name}
             onChange={handleChange}
-            className="w-full pl-11 pr-4 py-3.5 rounded-2xl
-              bg-zinc-100 dark:bg-zinc-800
-              border border-zinc-200/80 dark:border-zinc-700/50
-              text-zinc-900 dark:text-zinc-100
-              placeholder:text-zinc-400 dark:placeholder:text-zinc-500
-              focus:outline-none focus:ring-2 focus:ring-orange-700/50 dark:focus:ring-orange-400/50 focus:border-transparent
-              transition-all duration-300"
+            className={fieldClass}
           />
         </div>
-
-        {/* Email */}
-        <div className="relative">
-          <MdEmail className="absolute left-4 top-1/2 -translate-y-1/2 text-lg text-zinc-400 dark:text-zinc-500" />
+        <div className="flex flex-col gap-1.5">
+          <label className={labelClass} htmlFor="cf-email">Email</label>
           <input
+            id="cf-email"
             type="email"
             name="email"
             required
-            placeholder="Your Email"
+            placeholder="you@company.com"
             value={form.email}
             onChange={handleChange}
-            className="w-full pl-11 pr-4 py-3.5 rounded-2xl
-              bg-zinc-100 dark:bg-zinc-800
-              border border-zinc-200/80 dark:border-zinc-700/50
-              text-zinc-900 dark:text-zinc-100
-              placeholder:text-zinc-400 dark:placeholder:text-zinc-500
-              focus:outline-none focus:ring-2 focus:ring-orange-700/50 dark:focus:ring-orange-400/50 focus:border-transparent
-              transition-all duration-300"
+            className={fieldClass}
           />
         </div>
+      </div>
 
-        {/* Message */}
-        <div className="relative">
-          <MdMessage className="absolute left-4 top-4 text-lg text-zinc-400 dark:text-zinc-500" />
-          <textarea
-            name="message"
-            required
-            rows={5}
-            placeholder="Your Message"
-            value={form.message}
-            onChange={handleChange}
-            className="w-full pl-11 pr-4 py-3.5 rounded-2xl resize-none
-              bg-zinc-100 dark:bg-zinc-800
-              border border-zinc-200/80 dark:border-zinc-700/50
-              text-zinc-900 dark:text-zinc-100
-              placeholder:text-zinc-400 dark:placeholder:text-zinc-500
-              focus:outline-none focus:ring-2 focus:ring-orange-700/50 dark:focus:ring-orange-400/50 focus:border-transparent
-              transition-all duration-300"
-          />
-        </div>
+      <div className="flex flex-col gap-1.5">
+        <label className={labelClass} htmlFor="cf-message">Project</label>
+        <textarea
+          id="cf-message"
+          name="message"
+          required
+          rows={5}
+          placeholder="What are you building, and what do you need?"
+          value={form.message}
+          onChange={handleChange}
+          className={`${fieldClass} resize-y`}
+        />
+      </div>
 
-        {/* Submit Button */}
-        <button
-          type="submit"
-          disabled={status === 'sending' || status === 'ratelimited'}
-          className="flex items-center gap-2 px-6 py-3 font-medium
-            border border-black dark:border-white
-            text-zinc-900 dark:text-zinc-100
-            hover:bg-orange-700 hover:text-white hover:border-orange-700
-            dark:hover:bg-orange-400 dark:hover:text-zinc-900 dark:hover:border-orange-400
-            disabled:opacity-50 disabled:cursor-not-allowed
-            transition-all duration-300"
-        >
-          {status === 'sending' ? 'Sending...' : 'Send Message'}
-          <MdSend className="text-lg" />
-        </button>
+      <button
+        type="submit"
+        disabled={status === 'sending' || status === 'ratelimited'}
+        className="self-start rounded-full bg-ink px-7 py-3.5 text-[15px] font-semibold text-paper
+          hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity duration-200"
+      >
+        {status === 'sending' ? 'Sending…' : 'Send message →'}
+      </button>
 
-        {/* Status Messages */}
-        {status === 'success' && (
-          <p className="text-green-600 dark:text-green-400 font-medium">
-            Message sent successfully! I&apos;ll get back to you soon.
-          </p>
-        )}
-        {status === 'error' && (
-          <p className="text-red-600 dark:text-red-400 font-medium">
-            Something went wrong. Please try again or email me directly.
-          </p>
-        )}
-        {status === 'ratelimited' && (
-          <p className="text-orange-600 dark:text-orange-400 font-medium">
-            Please wait a minute before sending another message.
-          </p>
-        )}
-      </form>
-    </section>
+      {/* Status Messages */}
+      {status === 'success' && (
+        <p className="text-verified font-medium">
+          Message sent successfully! I&apos;ll get back to you soon.
+        </p>
+      )}
+      {status === 'error' && (
+        <p className="text-clay font-medium">
+          Something went wrong. Please try again or email me directly.
+        </p>
+      )}
+      {status === 'ratelimited' && (
+        <p className="text-clay font-medium">
+          Please wait a minute before sending another message.
+        </p>
+      )}
+    </form>
   );
 }
 

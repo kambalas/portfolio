@@ -16,7 +16,32 @@ const info = {
     linkedin: 'https://www.linkedin.com/in/ugniusmotiejunas/',
     instagram: '',
     facebook: '',
+    upwork: 'https://www.upwork.com/freelancers/~0185a75fd0cba7d271?mp_source=share',
   },
+
+  // ============ TESTIMONIALS (real reviews only) ============
+  testimonials: [
+    {
+      quote:
+        'Ugnius was great to work with throughout the project. Strong communication, proactive approach, and excellent technical skills. Would definitely work with him again.',
+      rating: 5.0,
+      project: 'Embeddable AI Chatbot',
+      author: 'Donata G.',
+      role: 'IT Project Manager, Starkodas',
+      source: 'upwork',
+      endorsements: ['Committed to Quality', 'Solution Oriented', 'Clear Communicator'],
+    },
+    {
+      quote:
+        "I would definitely recommend him to everyone!! Ugnius is new on platform, but after speaking with him it became very clear that he's a real expert! We needed help understanding the development plan and estimates for an AI chatbot, and he explained everything clearly and created a solid roadmap for the project. He was very easy to communicate with, professional, and clearly knows what he's doing.",
+      rating: 5.0,
+      project: 'AI Chatbot Development Plan With Cost and Timeline Estimate',
+      author: 'Sofia O.',
+      role: 'Founder, Realfluency',
+      source: 'upwork',
+      endorsements: ['Clear Communicator', 'Professional'],
+    },
+  ],
 
   // ============ PROJECTS ============
   projects: [
@@ -28,7 +53,7 @@ const info = {
         'Python, FastAPI, OpenAI Embeddings, Supabase, pgvector, httpx, Pydantic, pytest',
       github: 'https://github.com/kambalas/RAG-Agent',
       link: '',
-      image: 'projects/rag-assistant.png',
+      image: 'projects/rag-assistant.webp',
       slug: 'rag-assistant',
       details:
         'A production-grade RAG data pipeline built with FastAPI and Python. Upload a YouTube video and the system automatically transcribes it, organizes the content, and stores it in a searchable knowledge database. Instead of manually reviewing hours of footage, you can instantly find specific topics, answers, or key moments.',
@@ -36,7 +61,7 @@ const info = {
         'End-to-end async pipeline: fetch → chunk → embed → store',
         'OpenAI text-embedding-3-small (1536d) with batched API calls',
         'Supabase pgvector storage with IVFFlat cosine similarity index',
-        'Deduplication by video ID — skips already-processed videos',
+        'Deduplication by video ID, skips already-processed videos',
         'Retry logic for transient API errors (408/429/500/503)',
         'Four-stage processing lifecycle with per-video status tracking',
         '26 tests across 5 modules with fully mocked external dependencies',
@@ -46,7 +71,7 @@ const info = {
         {
           title: 'Corporate Training',
           description:
-            'Index internal video libraries into a searchable knowledge base — cut onboarding time and reduce trainer costs.',
+            'Index internal video libraries into a searchable knowledge base, cutting onboarding time and reducing trainer costs.',
         },
         {
           title: 'Customer Support AI',
@@ -74,7 +99,7 @@ const info = {
         'Python, Crawl4AI, OpenAI, DeepSeek, BM25, Multiprocessing',
       github: 'https://github.com/kambalas/crawlnew',
       link: '',
-      image: 'projects/llm-scraper.png',
+      image: 'projects/llm-scraper.webp',
       slug: 'llm-scraper',
       details:
         'An intelligent web scraping system that converts complex web pages into structured, actionable data. Uses large language models to extract meaningful information and relevance ranking to filter high-quality results. Designed for high-volume processing with built-in accuracy evaluation, making it suitable for production environments where data quality and reliability matter.',
@@ -116,10 +141,10 @@ const info = {
       technologies: 'React, TypeScript, Vite, HTML, CSS',
       github: 'https://github.com/kambalas/cocacola-lottery',
       link: 'https://kambalas.github.io/cocacola-lottery/',
-      image: 'projects/cocacola.png',
+      image: 'projects/cocacola.webp',
       slug: 'cocacola-lottery',
       details:
-        'Built for Coca-Cola Lithuania as a freelance engagement. The platform manages a full lottery lifecycle — from user registration and entry submission to randomized winner selection and announcement. Emphasis was placed on a smooth mobile-first UX, fast load times via Vite, and a clean admin workflow.',
+        'Built for Coca-Cola Lithuania as a freelance engagement. The platform manages a full lottery lifecycle, from user registration and entry submission to randomized winner selection and announcement. Emphasis was placed on a smooth mobile-first UX, fast load times via Vite, and a clean admin workflow.',
       features: [
         'Secure lottery entry submission with validation',
         'Randomized winner selection algorithm',
@@ -149,14 +174,14 @@ const info = {
     {
       title: 'AI Sales chatbot',
       description:
-        'An intelligent WhatsApp sales assistant built for CIMES, an Argentinian logistics franchise. Cimi attends customers, offers products, and closes sales — automatically, 24/7. Powered by GPT-4o and orchestrated with n8n for instant, human-like responses.',
+        'An intelligent WhatsApp sales assistant built for CIMES, an Argentinian logistics franchise. Cimi attends customers, offers products, and closes sales automatically, 24/7. Powered by GPT-4o and orchestrated with n8n for instant, human-like responses.',
       technologies: 'n8n, GPT, WhatsApp Business API, OpenAI',
       github: '',
       link: '',
-      image: 'projects/chatbot.png',
+      image: 'projects/chatbot.webp',
       slug: 'whatsapp-chatbot',
       details:
-        'Cimi is an AI-powered sales assistant deployed on WhatsApp for CIMES, a logistics franchise in Argentina. It greets customers, identifies whether they are new or returning, presents relevant product options with pricing, and guides them through to purchase — all in natural Spanish conversation. Built with GPT-4o for intelligent dialogue and n8n for workflow automation, Cimi operates 24/7 with instant response times.',
+        'Cimi is an AI-powered sales assistant deployed on WhatsApp for CIMES, a logistics franchise in Argentina. It greets customers, identifies whether they are new or returning, presents relevant product options with pricing, and guides them through to purchase, all in natural Spanish conversation. Built with GPT-4o for intelligent dialogue and n8n for workflow automation, Cimi operates 24/7 with instant response times.',
       features: [
         'Automated sales conversations via WhatsApp',
         'GPT-4o powered natural language understanding in Spanish',
@@ -169,7 +194,7 @@ const info = {
         {
           title: 'Automated Sales',
           description:
-            'Close deals around the clock without sales staff — Cimi handles the full conversation from greeting to order confirmation.',
+            'Close deals around the clock without sales staff. Cimi handles the full conversation from greeting to order confirmation.',
         },
         {
           title: '24/7 Customer Engagement',
@@ -196,7 +221,7 @@ const info = {
       technologies: 'Hugo, HTML, CSS, JavaScript',
       github: 'https://github.com/kambalas/test-actions',
       link: 'https://kambalas.github.io/test-actions/en/',
-      image: 'projects/business-website.png',
+      image: 'projects/business-website.webp',
       slug: 'business-website',
       details:
         'A statically generated business website using Hugo, designed for a client requiring multilingual content (EN/LT) and blazing-fast page loads. The site is fully themeable with dark mode support and deployed via GitHub Actions for zero-downtime updates.',
@@ -245,6 +270,17 @@ const info = {
 
   // ============ EXPERIENCE ============
   experience: [
+    {
+      position: 'Full Stack AI Engineer',
+      company: 'Starkodas',
+      duration: 'Apr 2026 – Present',
+      image: 'starkodas.webp',
+      descriptions: [
+        'Built multi-tenant AI chatbot SaaS with an embeddable, knowledge-base-trained widget.',
+        'RAG pipeline (crawl, chunk, embed, vector search via Firestore KNN) with confidence-based human handoff.',
+        'Multi-LLM orchestration (OpenAI / Gemini / Anthropic), per-tenant isolation, API keys and model assignment.',
+      ],
+    },
     {
       position: 'Full Stack Software Engineer',
       company: 'Nordics Software',

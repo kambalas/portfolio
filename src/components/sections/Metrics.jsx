@@ -1,44 +1,24 @@
-import user_info from '../../data/user_info.js';
-import { GoProjectRoadmap } from 'react-icons/go';
-import { BsBriefcase } from 'react-icons/bs';
-import { FiUsers } from 'react-icons/fi';
+import user_info from "../../data/user_info.js";
 
-const iconMap = {
-  0: <GoProjectRoadmap className="text-2xl sm:text-3xl text-orange-400" />,
-  1: <BsBriefcase className="text-2xl sm:text-3xl text-orange-400" />,
-  2: <FiUsers className="text-2xl sm:text-3xl text-orange-400" />,
-};
-
+// Editorial 3-up stat row: big serif clay numbers with vertical hairline
+// dividers. Data is unchanged from user_info.metrics.
 function Metrics() {
   return (
-    <section className="px-6 lg:px-24 pb-16 pt-4">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <section className="wrap py-14 md:py-16">
+      <div className="grid grid-cols-1 sm:grid-cols-3">
         {user_info.metrics.map((metric, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-2xl p-6 sm:p-8
-              bg-gradient-to-br from-zinc-100 to-zinc-200/80 border border-zinc-200/80
-              dark:from-zinc-800 dark:to-zinc-800/60 dark:border-zinc-700/50
-              hover:-translate-y-1 hover:shadow-lg
-              transition-all duration-300 group"
+            className="py-6 sm:py-0 sm:px-10 first:sm:pl-0 last:sm:pr-0
+              border-t sm:border-t-0 sm:border-l border-hairline first:border-t-0 first:sm:border-l-0"
           >
-            {/* Icon + Value row */}
-            <div className="flex items-start justify-between mb-4">
-              <div className="p-2.5 rounded-xl bg-orange-100 dark:bg-orange-500/15 group-hover:scale-110 transition-transform duration-300">
-                {iconMap[index]}
-              </div>
-              <span className="text-4xl sm:text-5xl font-black text-orange-600/20 dark:text-orange-400/20 leading-none select-none">
-                {metric.value}
-              </span>
+            <div className="font-serif text-[58px] sm:text-[62px] leading-none text-clay">
+              {metric.value}
             </div>
-
-            {/* Label */}
-            <h3 className="text-base sm:text-lg font-bold text-zinc-800 dark:text-zinc-100">
+            <div className="mt-3.5 text-[17px] font-bold text-ink">
               {metric.label}
-            </h3>
-
-            {/* Description */}
-            <p className="mt-1.5 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed">
+            </div>
+            <p className="mt-1.5 text-[15px] leading-[1.55] text-muted">
               {metric.description}
             </p>
           </div>

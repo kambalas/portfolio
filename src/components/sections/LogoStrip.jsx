@@ -55,11 +55,9 @@ function LogoStrip() {
             return (
               <div
                 key={index}
-                className="flex items-center gap-2.5 flex-shrink-0 px-4 py-2.5 rounded-xl
-                  bg-zinc-100 dark:bg-zinc-800/60
-                  border border-zinc-200/60 dark:border-zinc-700/40
-                  text-zinc-500 dark:text-zinc-400
-                  hover:text-orange-600 dark:hover:text-orange-400
+                className="flex items-center gap-2.5 flex-shrink-0 px-4 py-2.5 rounded-full
+                  bg-surface border border-hairline
+                  text-muted hover:text-clay
                   transition-colors duration-300"
               >
                 {Icon && <Icon className="text-xl sm:text-2xl" />}

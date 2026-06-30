@@ -3,17 +3,22 @@ import Project from "../Project.jsx";
 
 function Projects() {
   return (
-    <section id="projects" className="mt-8 px-6 lg:px-24">
+    <section id="projects" className="scroll-mt-20 wrap py-16">
       {/* =========== SECTION TITLE =========== */}
-      <h4 className="text-4xl font-bold text-center mb-10 dark:text-white">
-        Projects.
-      </h4>
+      <div className="flex flex-wrap items-baseline justify-between gap-3 mb-11">
+        <span className="eyebrow">01 · Selected work</span>
+        <h2 className="font-serif text-[30px] sm:text-[34px] font-normal text-ink">
+          Projects I have worked with.
+        </h2>
+      </div>
 
-      {/* =========== PROJECTS GRID =========== */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
+      {/* =========== ALTERNATING ROWS (order unchanged) =========== */}
+      <div>
         {user_info.projects.map((project, index) => (
           <Project
             key={index}
+            index={index}
+            reverse={index % 2 === 1}
             title={project.title}
             description={project.description}
             technologies={project.technologies}

@@ -75,51 +75,48 @@ const sections = [
 
 function Skills() {
   return (
-    <section id="skills" className="px-6 lg:px-24 py-16 space-y-14">
+    <section id="skills" className="scroll-mt-20 wrap py-16">
       {/* Section heading */}
-      <div className="text-center">
-        <h2 className="text-2xl sm:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
-          Technologies I Use
-        </h2>
-        <p className="mt-2 text-sm sm:text-base text-zinc-500 dark:text-zinc-400">
-          Languages, frameworks, and tools across the full stack.
-        </p>
-      </div>
-      {sections.map((section, si) => (
-        <div key={si}>
-          {/* Section header */}
-          <div className="mb-6">
-            <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 dark:text-zinc-100">
-              {section.title}
-            </h3>
-            <p className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
-              {section.description}
-            </p>
-            <div className="mt-3 h-px w-16 bg-red-500/60 dark:bg-red-400/60 rounded-full" />
-          </div>
+      <span className="eyebrow">05 · Toolkit</span>
+      <h2 className="mt-3.5 font-serif text-[30px] sm:text-[34px] font-normal text-ink">
+        Technologies I use.
+      </h2>
+      <p className="mt-1 mb-10 text-[17px] text-muted">
+        Languages, frameworks, and tools across the full stack.
+      </p>
 
-          {/* Skills grid */}
-          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3">
-            {section.skills.map((skill, ki) => (
-              <div
-                key={ki}
-                className="flex flex-col items-center justify-center gap-2 p-3 rounded-xl
-                  bg-orange-50 border border-orange-100
-                  dark:bg-orange-500/10 dark:border-orange-500/20
-                  hover:-translate-y-1 hover:shadow-md hover:border-orange-300 dark:hover:border-orange-500/40
-                  transition-all duration-300 group cursor-default aspect-square"
-              >
-                <span className="text-3xl text-orange-600 dark:text-orange-400 group-hover:scale-110 transition-transform duration-300">
-                  {skill.icon}
-                </span>
-                <span className="text-[10px] sm:text-xs font-medium text-zinc-600 dark:text-zinc-400 text-center leading-tight">
+      <div className="flex flex-col gap-8">
+        {sections.map((section, si) => (
+          <div
+            key={si}
+            className="grid grid-cols-1 md:grid-cols-[230px_1fr] gap-5 md:gap-8 items-start border-t border-hairline pt-7"
+          >
+            {/* Left: title + description */}
+            <div>
+              <h3 className="font-serif text-[20px] font-medium text-ink">
+                {section.title}
+              </h3>
+              <p className="mt-1.5 text-[13.5px] leading-[1.5] text-faint">
+                {section.description}
+              </p>
+            </div>
+
+            {/* Right: skill pills with icons */}
+            <div className="flex flex-wrap gap-2.5">
+              {section.skills.map((skill, ki) => (
+                <span
+                  key={ki}
+                  className="inline-flex items-center gap-1.5 rounded-lg border border-hairline px-3.5 py-[7px]
+                    text-[13px] font-medium text-ink hover:border-clay hover:text-clay transition-colors duration-200"
+                >
+                  <span className="text-[15px] text-muted">{skill.icon}</span>
                   {skill.name}
                 </span>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 }

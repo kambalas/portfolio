@@ -1,35 +1,37 @@
 import user_info from '../../data/user_info.js';
-import GitHubButton from 'react-github-btn';
-import { FaArrowCircleUp } from 'react-icons/fa';
 
-function Footer({ theme }) {
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-  };
+const linkClass =
+  "font-mono text-[11px] uppercase tracking-[0.1em] text-muted hover:text-clay transition-colors duration-300";
 
+function Footer() {
   return (
-    <footer className="p-4 text-center md:flex justify-between">
-      {/* =========== GITHUB BUTTON =========== */}
-      <GitHubButton
-        className="self-center"
-        href="https://github.com/kambalas"
-        data-color-scheme={theme}
-        data-size="large"
-        aria-label="Follow me on GitHub"
-      >
-        Let’s connect on GitHub
-      </GitHubButton>
-      {/* =========== SCROLL ON TOP BUTTON =========== */}
-      <button
-        onClick={() => scrollToTop()}
-        className="text-zinc-600 self-center mt-2 md:mt-0 dark:text-zinc-300 mx-auto md:mx-0 text-sm font-light flex gap-2"
-      >
-        <FaArrowCircleUp className="self-center text-orange-700 dark:text-orange-400" />{' '}
-        Go back to top
-      </button>
+    <footer className="border-t border-hairline">
+      <div className="wrap flex flex-wrap items-center justify-between gap-3 py-7">
+        <span className="font-mono text-[11px] text-faint">
+          © 2026 {user_info.main.name}
+        </span>
+        <div className="flex gap-6">
+          <a
+            href={user_info.socials.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+          >
+            GitHub
+          </a>
+          <a
+            href={user_info.socials.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={linkClass}
+          >
+            LinkedIn
+          </a>
+          <a href={`mailto:${user_info.main.email}`} className={linkClass}>
+            Email
+          </a>
+        </div>
+      </div>
     </footer>
   );
 }
