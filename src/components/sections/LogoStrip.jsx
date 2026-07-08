@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import user_info from '../../data/user_info.js';
 
 import { DiJava, DiMongodb } from 'react-icons/di';
@@ -31,12 +32,27 @@ const iconMap = {
 
 function LogoStrip() {
   const brands = user_info.brands;
+  const sectionRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(true);
 
   // Duplicate list for seamless infinite loop
   const track = [...brands, ...brands];
 
+  // Run the marquee only while it's on screen — an always-running animation
+  // steals frame budget from scrolling elsewhere on the page.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || typeof IntersectionObserver === 'undefined') return undefined;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsVisible(entry.isIntersecting)
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-10 overflow-hidden">
+    <section ref={sectionRef} className="py-10 overflow-hidden">
       {/* Fade-edge mask container */}
       <div
         className="relative"
@@ -47,8 +63,13 @@ function LogoStrip() {
       >
         {/* Scrolling track */}
         <div
-          className="flex w-max gap-8 sm:gap-12 hover:[animation-play-state:paused]"
-          style={{ animation: 'scroll 35s linear infinite' }}
+          className="marquee-track flex w-max gap-8 sm:gap-12 hover:[animation-play-state:paused]"
+          style={{
+            animation: 'scroll 35s linear infinite',
+            // Only force-pause when off screen; while visible the inline
+            // property must stay unset so the hover-pause class still wins.
+            ...(isVisible ? {} : { animationPlayState: 'paused' }),
+          }}
         >
           {track.map((name, index) => {
             const Icon = iconMap[name];

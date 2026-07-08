@@ -46,91 +46,89 @@ const info = {
   // ============ PROJECTS ============
   projects: [
     {
-      title: 'AI Assistant for Meetings & Videos',
+      title: 'Embeddable AI Chatbot Widget',
       description:
-        'Upload a YouTube video and the system automatically transcribes it, organizes the content, and stores it in a searchable knowledge database. Instead of manually reviewing hours of footage, you can instantly find specific topics, answers, or key moments.',
+        "A multi-tenant AI chatbot platform businesses embed on their site to handle support conversations and hand off to a human the moment the bot shouldn't be guessing. Built for Starkodas.",
       technologies:
-        'Python, FastAPI, OpenAI Embeddings, Supabase, pgvector, httpx, Pydantic, pytest',
-      github: 'https://github.com/kambalas/RAG-Agent',
+        'TypeScript, Node.js, Cloud Functions, Firestore Vector Search, Preact, OpenAI, Gemini, Anthropic, Firebase',
+      github: '',
       link: '',
-      image: 'projects/rag-assistant.webp',
-      slug: 'rag-assistant',
+      image: 'projects/widget.webp',
+      slug: 'chatbot-widget',
       details:
-        'A production-grade RAG data pipeline built with FastAPI and Python. Upload a YouTube video and the system automatically transcribes it, organizes the content, and stores it in a searchable knowledge database. Instead of manually reviewing hours of footage, you can instantly find specific topics, answers, or key moments.',
+        "A multi-tenant AI chatbot platform businesses embed on their site to handle support conversations and hand off to a human the moment the bot shouldn't be guessing. Under the hood it's a genuine tool-calling agent: on every message, the LLM can call real functions (search the knowledge base, check working hours, classify intent) through OpenAI's, Gemini's, or Anthropic's native function-calling, including its own escalate_to_operator tool to hand the conversation to a real person. A rule engine combining similarity of retrieved chunks with uncertainty-phrase detection in the model's own output decides when escalation should happen, so the bot only answers when the knowledge base actually supports the answer.",
       features: [
-        'End-to-end async pipeline: fetch → chunk → embed → store',
-        'OpenAI text-embedding-3-small (1536d) with batched API calls',
-        'Supabase pgvector storage with IVFFlat cosine similarity index',
-        'Deduplication by video ID, skips already-processed videos',
-        'Retry logic for transient API errors (408/429/500/503)',
-        'Four-stage processing lifecycle with per-video status tracking',
-        '26 tests across 5 modules with fully mocked external dependencies',
-        'Strict type checking with mypy and linting with ruff',
+        'Native LLM tool calling (OpenAI functions, Gemini function declarations, Anthropic tool_use) capped at 3 rounds, with tools for knowledge base search, working-hours check, intent classification, and operator escalation',
+        'RAG pipeline: crawled URLs are chunked, embedded, and stored as native Firestore vectors, retrieved by cosine-similarity KNN at query time',
+        "Confidence scoring from a hardcoded keyword list, best match score, hit count, and detected uncertainty phrases into a high/medium/low/none signal",
+        'Strict, prompt-engineered system prompt that forces exact quoting from retrieved context and an honest "I don\'t know"',
+        'Full conversation state machine (bot_active, waiting_for_human, timeout, pending_offline, resolved) wired to Cloud Tasks for timeout handling and notifications',
+        'Hard multi-tenant isolation: every Firestore path and security rule is scoped by the auth token, not just by convention',
+        "Incremental crawling, so unchanged pages don't get re-embedded on every scheduled crawl",
+        'Model-agnostic per tenant: swap between OpenAI, Gemini, and Anthropic',
+        'Widget runs in Shadow DOM with idle-time lazy loading, so it never slows down the host page',
       ],
       useCases: [
         {
-          title: 'Corporate Training',
+          title: 'Customer Support Automation',
           description:
-            'Index internal video libraries into a searchable knowledge base, cutting onboarding time and reducing trainer costs.',
+            "The agent answers from tenant content and calls its own escalation tool the moment it's unsure, instead of guessing or getting stuck.",
         },
         {
-          title: 'Customer Support AI',
+          title: 'Lead Qualification',
           description:
-            'Power support bots with product tutorial transcripts, deflecting tickets and lowering support headcount.',
+            'The widget captures visitor intent in real time and routes warm conversations to operators during business hours, with visual and audio alerts.',
         },
         {
-          title: 'E-Learning Platforms',
+          title: 'Agency / White-Label Deployment',
           description:
-            'Enable semantic search across course content so learners find answers instantly, boosting retention and reducing churn.',
+            'Tenant isolation at the security-rule level, so one platform can run dozens of independent client chatbots with no data leakage.',
         },
         {
-          title: 'Content Repurposing',
+          title: 'After-Hours Coverage',
           description:
-            'Agencies auto-extract key moments from hours of footage, shipping newsletters and clips in minutes instead of days.',
+            'Outside working hours the bot still answers from the knowledge base and falls back to email capture, fully implemented end to end, not a stub.',
         },
       ],
     },
 
     {
-      title: 'AI Market Research Scraper',
+      title: 'Real-Time Radio Network & Emergency Services Management Console',
       description:
-        'An intelligent web scraping system that converts complex web pages into structured, actionable data. Uses large language models to extract meaningful information and relevance ranking to filter high-quality results. Designed for high-volume processing with built-in accuracy evaluation, making it suitable for production environments where data quality and reliability matter.',
+        'A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration with real-time monitoring of GPS positions, signal strength, and device status across an entire radio network, all rendered on interactive maps.',
       technologies:
-        'Python, Crawl4AI, OpenAI, DeepSeek, BM25, Multiprocessing',
-      github: 'https://github.com/kambalas/crawlnew',
+        'React 19, TypeScript, Vite, Material UI, TanStack Query, React Hook Form, Zod, Firebase Auth, Mapbox GL, Axios, i18next',
+      github: '',
       link: '',
-      image: 'projects/llm-scraper.webp',
-      slug: 'llm-scraper',
+      image: 'projects/radio.webp',
+      slug: 'radio-network-console',
       details:
-        'An intelligent web scraping system that converts complex web pages into structured, actionable data. Uses large language models to extract meaningful information and relevance ranking to filter high-quality results. Designed for high-volume processing with built-in accuracy evaluation, making it suitable for production environments where data quality and reliability matter.',
+        'A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration (radio units, base stations, teams, users) with real-time monitoring of GPS positions, signal strength, and device status across an entire radio network, all rendered on interactive maps. Built with a strict service layer architecture and Firebase authenticated API access, designed for NOC teams who need reliable, at-a-glance visibility into distributed hardware.',
       features: [
-        'Asynchronous web scraping with Crawl4AI',
-        'LLM-based structured data extraction (OpenAI, DeepSeek, etc...)',
-        'BM25 relevance ranking for page prioritization',
-        'Parallel processing via Python multiprocessing',
-        'Automated evaluation with precision, recall, and F1 metrics',
-        'Configurable extraction schemas for different domains',
+        'Full CRUD admin console for radio units, companies, teams, users, network types, and Android devices',
+        'Real-time GPS and RSSI signal monitoring rendered on Mapbox coverage and heatmap views',
+        'Firebase backed authentication with automatic token refresh and retry on expired sessions',
+        'Per-protocol network driver metrics for TETRA, NXDN, and AKIS systems',
+        'Dedicated ambulance fleet module tracking crew locations and patient care records',
+        'SDS messaging and status outbox tracking for auditing device communication',
+        'Multi-language support across English, Lithuanian, German, and Spanish',
+        'URL driven filtering and pagination for consistent, shareable table views across every domain',
       ],
       useCases: [
         {
-          title: 'Market Intelligence',
+          title: 'Network Operations',
           description:
-            'Continuously monitor competitor pricing and product updates, giving sales teams an edge without manual research.',
+            'Give NOC teams a single view of radio unit health, coverage, and signal strength across a whole service area, cutting the time it takes to diagnose connectivity issues.',
         },
         {
-          title: 'Lead Generation',
+          title: 'Emergency Fleet Coordination',
           description:
-            'Extract structured contact and company data from directories at scale, reducing prospecting costs by hours per week.',
+            'Track ambulance crews and their equipment in real time, tying GPS position and patient care data to the radios assigned to each vehicle.',
         },
         {
-          title: 'Financial Research',
+          title: 'Device and User Administration',
           description:
-            'Aggregate earnings data and news across hundreds of filings overnight, enabling faster investment decisions.',
-        },
-        {
-          title: 'E-Commerce Monitoring',
-          description:
-            'Track stock levels and listings across platforms to optimise pricing and avoid lost sales.',
+            'Manage hundreds of radio units, Android handhelds, and personnel across multiple companies and teams from one interface instead of scattered vendor tools.',
         },
       ],
     },

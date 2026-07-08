@@ -48,6 +48,14 @@ function Contact() {
             >
               <MdEmail />
             </a>
+            <a
+              href="https://calendly.com/motiejunasugnius/discovery-call"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="ml-2 inline-block rounded-full bg-clay px-5 py-2.5 text-[14px] font-semibold text-clayink hover:bg-clay-hover transition-colors duration-300"
+            >
+              Book a call
+            </a>
           </div>
         </div>
 

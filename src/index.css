@@ -4,16 +4,17 @@
 
 /* ============ WARM EDITORIAL PALETTE (light default) ============ */
 :root {
-  --paper: #f4f3ee;       /* parchment */
-  --band: #eae8e1;        /* parchment, a touch deeper */
-  --surface: #fbfaf8;
-  --ink: #463f3a;         /* taupe */
-  --muted: #8a817c;       /* grey-olive */
-  --faint: #bcb8b1;       /* silver */
-  --clay: #e0afa0;        /* powder-blush (accent) */
-  --clay-hover: #d2998a;
-  --clay-dark: #e0afa0;
-  --hairline: rgba(70, 63, 58, 0.14);
+  --paper: #f0efeb;       /* parchment */
+  --band: #eddcd2;        /* powder-petal */
+  --surface: #fff1e6;     /* linen */
+  --ink: #3f342b;         /* dark warm brown (for contrast) */
+  --muted: #7a7a66;       /* dry-sage, darkened for readable body text */
+  --faint: #a5a58d;       /* dry-sage */
+  --clay: #cb997e;        /* light-bronze (accent) */
+  --clay-hover: #b9846a;
+  --clay-dark: #ddbea9;   /* desert-sand */
+  --clay-ink: #3f342b;    /* fixed dark text for light accent buttons */
+  --hairline: rgba(63, 52, 43, 0.15);
   --verified: #3a9d6a;
 
   font-family: "Hanken Grotesk", system-ui, sans-serif;
@@ -21,21 +22,21 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
 }
 
 /* Warm darks rather than pure zinc. The hero band stays dark in both modes. */
 .dark {
-  --paper: #2a2623;       /* deep taupe */
-  --band: #322d29;
-  --surface: #383330;
-  --ink: #f4f3ee;         /* parchment */
-  --muted: #bcb8b1;       /* silver */
-  --faint: #8a817c;       /* grey-olive */
-  --clay: #e0afa0;        /* powder-blush */
-  --clay-hover: #ecc0b3;
-  --clay-dark: #e0afa0;
-  --hairline: rgba(244, 243, 238, 0.12);
+  --paper: #292420;       /* deep warm brown */
+  --band: #322a24;
+  --surface: #38302a;
+  --ink: #fff1e6;         /* linen */
+  --muted: #b7b7a4;       /* ash-grey */
+  --faint: #a5a58d;       /* dry-sage */
+  --clay: #ddbea9;        /* desert-sand (brighter accent on dark) */
+  --clay-hover: #e8cdb9;
+  --clay-dark: #ddbea9;
+  --clay-ink: #3f342b;    /* dark text on light accent buttons */
+  --hairline: rgba(255, 241, 230, 0.12);
   --verified: #4cb583;
 }
 
@@ -101,4 +102,22 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--clay-hover);
+}
+
+/* ============ REDUCED MOTION ============ */
+/* Visitors who ask their OS for less motion get instant jumps instead of
+   smooth scrolling, a static logo strip, and no hover zoom. Everyone else
+   sees the site exactly as designed. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+
+  .group:hover img {
+    transform: none !important;
+  }
 }

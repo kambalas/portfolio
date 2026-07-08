@@ -7,12 +7,15 @@
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Fonts -->
+  <!-- Fonts — only the weights actually used on the site -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
+
+  <!-- Hero photo is the LCP element — fetch it alongside the CSS/JS -->
+  <link rel="preload" as="image" href="/photo.webp" fetchpriority="high">
 
   <title>Ugnius Motiejunas | Full-Stack AI Engineer</title>
 
@@ -34,16 +37,38 @@
 
   <link rel="canonical" href="https://udevelops.com/" />
 
+  <!-- Browser chrome color; kept in sync with the active theme below -->
+  <meta name="theme-color" content="#292420" />
+
   <!-- Apply theme before first paint (defaults to dark) to avoid a light flash -->
   <script>
     (function () {
+      var isDark = true;
       try {
-        var t = localStorage.getItem('theme') || 'dark';
-        if (t !== 'light') document.documentElement.classList.add('dark');
-      } catch (e) {
-        document.documentElement.classList.add('dark');
-      }
+        isDark = (localStorage.getItem('theme') || 'dark') !== 'light';
+      } catch (e) { /* private mode etc. — keep dark */ }
+      if (isDark) document.documentElement.classList.add('dark');
+      var themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) themeColor.setAttribute('content', isDark ? '#292420' : '#f0efeb');
     })();
+  </script>
+
+  <!-- Structured data: helps search engines show rich results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ugnius Motiejunas",
+    "url": "https://udevelops.com/",
+    "image": "https://udevelops.com/photo.webp",
+    "jobTitle": "Full-Stack AI Engineer",
+    "email": "mailto:motiejunasugnius@gmail.com",
+    "sameAs": [
+      "https://github.com/kambalas",
+      "https://www.linkedin.com/in/ugniusmotiejunas/",
+      "https://www.upwork.com/freelancers/~0185a75fd0cba7d271"
+    ]
+  }
   </script>
 
   <!-- GitHub Pages SPA redirect handler -->

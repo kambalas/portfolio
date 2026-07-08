@@ -3,8 +3,22 @@ import ReactGA from 'react-ga4';
 // Your GA4 Measurement ID
 const MEASUREMENT_ID = 'G-3GTMHSF5XR';
 
+// GA init is deferred to browser idle time (see App.jsx) so it never
+// competes with first paint. Events fired before init (e.g. the very first
+// page_view from RouteTracker) are queued here and flushed on init.
+let isInitialized = false;
+const pendingEvents = [];
+
+function sendOrQueue(send) {
+  if (isInitialized) {
+    send();
+  } else {
+    pendingEvents.push(send);
+  }
+}
+
 /**
- * Initialize GA4. Called once at app startup (module load time).
+ * Initialize GA4. Called once from App.jsx during browser idle time.
  * debug_mode is enabled only in development so test events appear
  * in GA4 DebugView without polluting your production data.
  */
@@ -14,6 +28,9 @@ export function initGA() {
       debug_mode: import.meta.env.DEV,
     },
   });
+  isInitialized = true;
+  pendingEvents.forEach((send) => send());
+  pendingEvents.length = 0;
 }
 
 /**
@@ -24,7 +41,7 @@ export function initGA() {
  * @param {string} path - pathname + search string, e.g. "/?utm_source=github"
  */
 export function trackPageView(path) {
-  ReactGA.send({ hitType: 'pageview', page: path });
+  sendOrQueue(() => ReactGA.send({ hitType: 'pageview', page: path }));
 }
 
 /**
@@ -35,8 +52,10 @@ export function trackPageView(path) {
  * @param {string} projectSlug  - URL slug, e.g. "my-cool-app"
  */
 export function trackProjectClick(projectTitle, projectSlug) {
-  ReactGA.event('project_details_click', {
-    project_title: projectTitle,
-    project_slug: projectSlug,
-  });
+  sendOrQueue(() =>
+    ReactGA.event('project_details_click', {
+      project_title: projectTitle,
+      project_slug: projectSlug,
+    })
+  );
 }

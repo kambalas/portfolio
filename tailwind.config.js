@@ -4,7 +4,6 @@ export default {
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
-    "./node_modules/preline/preline.js",
   ],
   theme: {
     extend: {
@@ -31,9 +30,9 @@ export default {
           hover: "var(--clay-hover)",
           bright: "var(--clay-dark)",
         },
+        clayink: "var(--clay-ink)",
       },
     },
   },
-  // eslint-disable-next-line no-undef
-  plugins: [require("preline/plugin")],
+  plugins: [],
 };

@@ -8,6 +8,16 @@ function Project({ title, description, technologies, link, github, image, slug, 
   const handleDetailsClick = () => trackProjectClick(title, slug);
   const number = String(index + 1).padStart(2, '0');
 
+  // Serve the 600px variant to small screens (half the bytes, same look).
+  // When adding a new project image, generate its -600.webp variant too:
+  //   cwebp -resize 600 0 -q 80 projects/name.webp -o projects/name-600.webp
+  const image600 = image?.endsWith('.webp')
+    ? image.replace(/\.webp$/, '-600.webp')
+    : null;
+  const srcSet = image600
+    ? `${import.meta.env.BASE_URL}${image600} 600w, ${import.meta.env.BASE_URL}${image} 1200w`
+    : undefined;
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center py-9 border-t border-hairline last:border-b">
       {/* =========== IMAGE =========== */}
@@ -16,6 +26,8 @@ function Project({ title, description, technologies, link, github, image, slug, 
           {image ? (
             <img
               src={`${import.meta.env.BASE_URL}${image}`}
+              srcSet={srcSet}
+              sizes="(min-width: 768px) 540px, calc(100vw - 48px)"
               alt={title}
               loading="lazy"
               decoding="async"
@@ -28,12 +40,12 @@ function Project({ title, description, technologies, link, github, image, slug, 
           )}
 
           {/* Hover overlay */}
-          <div className="absolute inset-0 bg-[#463f3a]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+          <div className="absolute inset-0 bg-[#2a241f]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <Link
               to={`/project/${slug}`}
               onClick={handleDetailsClick}
-              className="px-5 py-2.5 rounded-full bg-[#f4f3ee] text-[#463f3a] text-sm font-semibold
-                hover:bg-[#e0afa0] hover:text-[#463f3a] transition-colors duration-200 flex items-center gap-2"
+              className="px-5 py-2.5 rounded-full bg-[#fff1e6] text-[#2a241f] text-sm font-semibold
+                hover:bg-[#ddbea9] hover:text-[#2a241f] transition-colors duration-200 flex items-center gap-2"
             >
               View Details <FiArrowRight />
             </Link>

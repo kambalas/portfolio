@@ -16,9 +16,13 @@ function TestimonialCard({
     <figure className="h-full flex flex-col gap-[18px] rounded-2xl border border-hairline bg-surface p-8">
       {/* Rating */}
       {rating ? (
-        <div className="flex items-center gap-2.5">
-          <span className="text-clay text-[16px] tracking-[2px]">★★★★★</span>
-          <span className="text-[14px] font-bold text-ink">{rating.toFixed(1)}</span>
+        <div
+          className="flex items-center gap-2.5"
+          role="img"
+          aria-label={`Rated ${rating.toFixed(1)} out of 5 stars`}
+        >
+          <span aria-hidden="true" className="text-clay text-[16px] tracking-[2px]">★★★★★</span>
+          <span aria-hidden="true" className="text-[14px] font-bold text-ink">{rating.toFixed(1)}</span>
         </div>
       ) : null}
 
@@ -58,7 +62,7 @@ function TestimonialCard({
         </span>
         {source === 'upwork' && (
           <span className="font-mono text-[11px] text-verified whitespace-nowrap">
-            ✔ Verified on Upwork
+            <span aria-hidden="true">✔ </span>Verified on Upwork
           </span>
         )}
       </figcaption>

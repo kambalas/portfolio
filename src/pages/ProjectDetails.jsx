@@ -3,6 +3,15 @@ import { useEffect } from 'react';
 import user_info from '../data/user_info.js';
 import { FiArrowLeft, FiExternalLink, FiGithub } from 'react-icons/fi';
 
+// Intrinsic pixel sizes of the project screenshots. Reserving the space up
+// front prevents the layout from jumping while the image loads. New images
+// default to 1200x676 (the common 16:9-ish export size used here).
+const IMAGE_DIMENSIONS = {
+  'projects/business-website.webp': { width: 1200, height: 730 },
+  'projects/chatbot.webp': { width: 1200, height: 800 },
+};
+const DEFAULT_DIMENSIONS = { width: 1200, height: 676 };
+
 function ProjectDetails() {
   const { slug } = useParams();
   const navigate = useNavigate();
@@ -23,7 +32,7 @@ function ProjectDetails() {
           </p>
           <button
             onClick={() => navigate('/')}
-            className="mt-8 rounded-full bg-clay hover:bg-clay-hover px-6 py-3 text-ink font-semibold transition-colors duration-200"
+            className="mt-8 rounded-full bg-clay hover:bg-clay-hover px-6 py-3 text-clayink font-semibold transition-colors duration-200"
           >
             Back to Homepage
           </button>
@@ -43,7 +52,7 @@ function ProjectDetails() {
         {/* ── TOP BAR ── */}
         <div className="pt-8 pb-2 shrink-0">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/#projects')}
             className="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-clay transition-colors duration-200"
           >
             <FiArrowLeft className="text-base" />
@@ -126,9 +135,12 @@ function ProjectDetails() {
                   <img
                     src={`${import.meta.env.BASE_URL}${project.image}`}
                     alt={project.title}
-                    loading="lazy"
+                    width={(IMAGE_DIMENSIONS[project.image] || DEFAULT_DIMENSIONS).width}
+                    height={(IMAGE_DIMENSIONS[project.image] || DEFAULT_DIMENSIONS).height}
+                    loading="eager"
+                    fetchPriority="high"
                     decoding="async"
-                    className="w-full object-cover"
+                    className="w-full h-auto object-cover"
                   />
                 </div>
               )}
@@ -140,7 +152,7 @@ function ProjectDetails() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full bg-clay hover:bg-clay-hover px-6 py-3 text-ink font-semibold text-sm transition-colors duration-200"
+                    className="inline-flex items-center gap-2 rounded-full bg-clay hover:bg-clay-hover px-6 py-3 text-clayink font-semibold text-sm transition-colors duration-200"
                   >
                     <FiExternalLink />
                     Live Demo

@@ -9,10 +9,12 @@ function CTA() {
         Tell me what you&apos;re making. I&apos;ll tell you how I&apos;d ship it.
       </p>
       <a
-        href="#contact"
-        className="inline-block rounded-full bg-clay px-8 py-4 text-[16px] font-semibold text-ink hover:bg-clay-hover transition-colors duration-300"
+        href="https://calendly.com/motiejunasugnius/discovery-call"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-block rounded-full bg-clay px-8 py-4 text-[16px] font-semibold text-clayink hover:bg-clay-hover transition-colors duration-300"
       >
-        Get in touch
+        Book a 30 min intro call
       </a>
     </section>
   );

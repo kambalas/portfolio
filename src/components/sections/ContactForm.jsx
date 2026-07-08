@@ -1,11 +1,13 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const COOLDOWN_MS = 60_000; // 60 seconds between submissions
 
 const fieldClass =
   "font-sans text-[15px] px-4 py-3.5 rounded-[10px] bg-surface text-ink " +
   "border border-hairline placeholder:text-faint " +
-  "focus:outline-none focus:border-clay transition-colors duration-200";
+  "focus:outline-none focus:border-clay " +
+  "focus-visible:ring-2 focus-visible:ring-clay/40 focus-visible:ring-offset-0 " +
+  "transition-colors duration-200";
 
 const labelClass =
   "font-mono text-[10px] uppercase tracking-[0.12em] text-faint";
@@ -15,6 +17,15 @@ function ContactForm() {
   const [honeypot, setHoneypot] = useState('');
   const [status, setStatus] = useState('idle'); // idle | sending | success | error | ratelimited
   const lastSubmitRef = useRef(0);
+
+  // When rate-limited, re-enable the form automatically once the cooldown
+  // has passed instead of leaving the button disabled indefinitely.
+  useEffect(() => {
+    if (status !== 'ratelimited') return undefined;
+    const remaining = Math.max(0, COOLDOWN_MS - (Date.now() - lastSubmitRef.current));
+    const timer = setTimeout(() => setStatus('idle'), remaining);
+    return () => clearTimeout(timer);
+  }, [status]);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -124,27 +135,31 @@ function ContactForm() {
         type="submit"
         disabled={status === 'sending' || status === 'ratelimited'}
         className="self-start rounded-full bg-ink px-7 py-3.5 text-[15px] font-semibold text-paper
-          hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed transition-opacity duration-200"
+          hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed
+          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-clay/60 focus-visible:ring-offset-2
+          transition-opacity duration-200"
       >
         {status === 'sending' ? 'Sending…' : 'Send message →'}
       </button>
 
-      {/* Status Messages */}
-      {status === 'success' && (
-        <p className="text-verified font-medium">
-          Message sent successfully! I&apos;ll get back to you soon.
-        </p>
-      )}
-      {status === 'error' && (
-        <p className="text-clay font-medium">
-          Something went wrong. Please try again or email me directly.
-        </p>
-      )}
-      {status === 'ratelimited' && (
-        <p className="text-clay font-medium">
-          Please wait a minute before sending another message.
-        </p>
-      )}
+      {/* Status messages: aria-live announces changes to screen readers */}
+      <div aria-live="polite" role="status">
+        {status === 'success' && (
+          <p className="text-verified font-medium">
+            Message sent successfully! I&apos;ll get back to you soon.
+          </p>
+        )}
+        {status === 'error' && (
+          <p className="text-clay font-medium">
+            Something went wrong. Please try again or email me directly.
+          </p>
+        )}
+        {status === 'ratelimited' && (
+          <p className="text-clay font-medium">
+            Please wait a minute before sending another message.
+          </p>
+        )}
+      </div>
     </form>
   );
 }
