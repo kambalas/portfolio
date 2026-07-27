@@ -1,20 +1,21 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
 import { lazy, Suspense, useEffect, useState, createContext } from 'react';
-import { initGA } from './lib/analytics';
+import { initAnalytics, setUserProperties, trackThemeToggle } from './lib/analytics';
+import { useWebVitals } from './hooks/useWebVitals';
 import RouteTracker from './components/RouteTracker';
 
 // Secondary routes load on demand so the homepage bundle stays small.
 const ProjectDetails = lazy(() => import('./pages/ProjectDetails'));
 const NotFound = lazy(() => import('./pages/404'));
 
-// Initialize GA4 once, deferred to idle time so analytics never competes
-// with first paint / interactivity.
+// Initialize GA4 + Clarity once, deferred to idle time so analytics never
+// competes with first paint / interactivity.
 const scheduleIdle =
   typeof window.requestIdleCallback === 'function'
     ? (cb) => window.requestIdleCallback(cb)
     : (cb) => setTimeout(cb, 1500);
-scheduleIdle(() => initGA());
+scheduleIdle(() => initAnalytics());
 
 export const AppContext = createContext();
 
@@ -27,6 +28,15 @@ function RouteFallback() {
 function App() {
   const savedTheme = localStorage.getItem('theme');
   const [theme, setTheme] = useState(savedTheme || 'dark');
+
+  // Core Web Vitals from real visitors, reported when the page is hidden.
+  useWebVitals();
+
+  // Theme is a user-scoped property, so every event from this visitor can be
+  // segmented by it (register it under Admin → Custom definitions).
+  useEffect(() => {
+    setUserProperties({ preferred_theme: theme });
+  }, [theme]);
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', theme === 'dark');
@@ -41,7 +51,9 @@ function App() {
   }, [theme]);
 
   const switchTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
+    const next = theme === 'dark' ? 'light' : 'dark';
+    trackThemeToggle(next);
+    setTheme(next);
   };
 
   return (

@@ -52,7 +52,7 @@ function LogoStrip() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-10 overflow-hidden">
+    <section id="brands" ref={sectionRef} className="py-10 overflow-hidden">
       {/* Fade-edge mask container */}
       <div
         className="relative"

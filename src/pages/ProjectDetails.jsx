@@ -1,7 +1,11 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import user_info from '../data/user_info.js';
 import { FiArrowLeft, FiExternalLink, FiGithub } from 'react-icons/fi';
+import { trackProjectLink, trackBackToProjects } from '../lib/analytics';
+import { useScrollDepth } from '../hooks/useScrollDepth';
+import { usePageEngagement } from '../hooks/usePageEngagement';
+import { useInteractionQuality } from '../hooks/useInteractionQuality';
 
 // Intrinsic pixel sizes of the project screenshots. Reserving the space up
 // front prevents the layout from jumping while the image loads. New images
@@ -16,6 +20,15 @@ function ProjectDetails() {
   const { slug } = useParams();
   const navigate = useNavigate();
   const project = user_info.projects.find((p) => p.slug === slug);
+
+  // Hooks must run before the not-found early return below.
+  // Note: on lg+ this page uses inner scroll containers rather than the
+  // window, so scroll depth here is a mobile/narrow-viewport signal.
+  const maxScrollRef = useScrollDepth(slug);
+  const currentSectionRef = useRef(`project:${slug}`);
+  currentSectionRef.current = `project:${slug}`;
+  usePageEngagement({ maxScrollRef, currentSectionRef, resetKey: slug });
+  useInteractionQuality(currentSectionRef);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -52,7 +65,10 @@ function ProjectDetails() {
         {/* ── TOP BAR ── */}
         <div className="pt-8 pb-2 shrink-0">
           <button
-            onClick={() => navigate('/#projects')}
+            onClick={() => {
+              trackBackToProjects();
+              navigate('/#projects');
+            }}
             className="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-clay transition-colors duration-200"
           >
             <FiArrowLeft className="text-base" />
@@ -152,6 +168,7 @@ function ProjectDetails() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackProjectLink('demo', project.title, project.link, 'project_detail')}
                     className="inline-flex items-center gap-2 rounded-full bg-clay hover:bg-clay-hover px-6 py-3 text-clayink font-semibold text-sm transition-colors duration-200"
                   >
                     <FiExternalLink />
@@ -163,6 +180,7 @@ function ProjectDetails() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackProjectLink('github', project.title, project.github, 'project_detail')}
                     className="inline-flex items-center gap-2 rounded-full border border-hairline px-6 py-3 text-ink hover:border-clay hover:text-clay font-semibold text-sm transition-colors duration-200"
                   >
                     <FiGithub />

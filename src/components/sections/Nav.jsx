@@ -2,6 +2,7 @@ import { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
 import user_info from "../../data/user_info.js";
 import ToggleTheme from "../ToggleTheme.jsx";
+import { trackNavClick, trackMobileMenuToggle, trackBookCall } from "../../lib/analytics";
 
 const links = [
   { label: "Work", href: "#projects" },
@@ -12,6 +13,13 @@ const links = [
 
 function Nav({ switchTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Tracked outside the state updater: StrictMode invokes updaters twice in
+  // development, which would double-count the event.
+  const toggleMenu = () => {
+    trackMobileMenuToggle(!isMenuOpen);
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   return (
     <header
@@ -25,7 +33,11 @@ function Nav({ switchTheme }) {
     >
       <div className="wrap flex items-center justify-between py-4">
         {/* Name + sub-label */}
-        <a href="#top" className="flex flex-col leading-tight">
+        <a
+          href="#top"
+          onClick={() => trackNavClick("logo", "#top", false)}
+          className="flex flex-col leading-tight"
+        >
           <span className="font-serif text-[20px] font-medium text-ink">
             {user_info.main.name}
           </span>
@@ -41,6 +53,7 @@ function Nav({ switchTheme }) {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={() => trackNavClick(link.label, link.href, false)}
                 className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted hover:text-clay transition-colors duration-300"
               >
                 {link.label}
@@ -50,6 +63,7 @@ function Nav({ switchTheme }) {
 
           <a
             href="#contact"
+            onClick={() => trackBookCall("nav", "contact_section")}
             className="rounded-full bg-clay px-4 py-2.5 text-[13px] font-semibold text-clayink hover:bg-clay-hover transition-colors duration-300"
           >
             Book a call →
@@ -60,7 +74,7 @@ function Nav({ switchTheme }) {
           {/* Mobile menu toggle (44px hit area via padding + negative margin) */}
           <button
             type="button"
-            onClick={() => setIsMenuOpen((open) => !open)}
+            onClick={toggleMenu}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -84,7 +98,10 @@ function Nav({ switchTheme }) {
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                trackNavClick(link.label, link.href, true);
+                setIsMenuOpen(false);
+              }}
               className="py-3.5 font-mono text-[11px] uppercase tracking-[0.1em] text-muted hover:text-clay transition-colors duration-300 border-b border-hairline last:border-b-0"
             >
               {link.label}

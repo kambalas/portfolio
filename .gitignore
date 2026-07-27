@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Local env (Clarity project id etc.) — .env.example is committed instead
+.env
+.env.*
+!.env.example
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
@@ -22,3 +27,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# GA4 service account key — never commit
+ga4-key.json
+*-key.json

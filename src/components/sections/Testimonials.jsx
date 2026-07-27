@@ -1,5 +1,6 @@
 import user_info from "../../data/user_info.js";
 import TestimonialCard from "../TestimonialCard.jsx";
+import { trackOutbound } from "../../lib/analytics";
 
 function Testimonials() {
   const reviews = user_info.testimonials;
@@ -34,6 +35,7 @@ function Testimonials() {
           href={upworkUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackOutbound(upworkUrl, "See all reviews on Upwork", "reviews")}
           className="inline-block rounded-full bg-ink px-6 py-3.5 text-[15px] font-semibold text-paper hover:opacity-90 transition-opacity duration-200"
         >
           See all reviews on Upwork →

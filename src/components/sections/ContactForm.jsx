@@ -1,4 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
+import {
+  trackFormStart,
+  trackFormFieldComplete,
+  trackFormSubmit,
+  trackFormAbandon,
+} from '../../lib/analytics';
 
 const COOLDOWN_MS = 60_000; // 60 seconds between submissions
 
@@ -18,6 +24,53 @@ function ContactForm() {
   const [status, setStatus] = useState('idle'); // idle | sending | success | error | ratelimited
   const lastSubmitRef = useRef(0);
 
+  // ── Funnel tracking state ──
+  // Only field NAMES, lengths and filled/empty flags are ever sent. The
+  // values themselves (name, email, message) are PII and never leave here.
+  const startedAtRef = useRef(0);
+  const hasStartedRef = useRef(false);
+  const hasReportedOutcomeRef = useRef(false);
+  const lastFieldRef = useRef('');
+  const formRef = useRef(null);
+
+  const handleFocus = (e) => {
+    lastFieldRef.current = e.target.name;
+    if (hasStartedRef.current) return;
+    hasStartedRef.current = true;
+    startedAtRef.current = Date.now();
+    trackFormStart();
+  };
+
+  // Fired per field on blur — this is what shows you which field people stall
+  // on (almost always the free-text "Project" box).
+  const handleBlur = (e) => {
+    trackFormFieldComplete(e.target.name, e.target.value.trim().length > 0);
+  };
+
+  // Someone typed into the form and left without ever submitting. Reported on
+  // page hide because that is the only event mobile Safari reliably fires.
+  useEffect(() => {
+    const reportAbandon = () => {
+      if (!hasStartedRef.current || hasReportedOutcomeRef.current) return;
+      hasReportedOutcomeRef.current = true; // report at most once
+      const fieldsFilled = ['name', 'email', 'message'].filter(
+        (field) => formRef.current?.elements[field]?.value.trim()
+      ).length;
+      trackFormAbandon(lastFieldRef.current || 'none', fieldsFilled);
+    };
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') reportAbandon();
+    };
+
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    window.addEventListener('pagehide', reportAbandon);
+    return () => {
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.removeEventListener('pagehide', reportAbandon);
+    };
+  }, []);
+
   // When rate-limited, re-enable the form automatically once the cooldown
   // has passed instead of leaving the button disabled indefinitely.
   useEffect(() => {
@@ -31,11 +84,18 @@ function ContactForm() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Seconds from first field focus to this submit attempt.
+  const secondsToComplete = () =>
+    startedAtRef.current ? (Date.now() - startedAtRef.current) / 1000 : 0;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    hasReportedOutcomeRef.current = true;
 
     // Honeypot: if filled, silently pretend success
     if (honeypot) {
+      // Tracked as 'spam' so bot traffic never inflates the conversion count.
+      trackFormSubmit('spam', secondsToComplete(), form.message.length);
       setStatus('success');
       return;
     }
@@ -43,6 +103,7 @@ function ContactForm() {
     // Rate limit: block if submitted within cooldown
     const now = Date.now();
     if (now - lastSubmitRef.current < COOLDOWN_MS) {
+      trackFormSubmit('ratelimited', secondsToComplete(), form.message.length);
       setStatus('ratelimited');
       return;
     }
@@ -63,19 +124,30 @@ function ContactForm() {
 
       const data = await res.json();
       if (data.success) {
+        // Message LENGTH only — never the text itself.
+        trackFormSubmit('success', secondsToComplete(), form.message.length);
         lastSubmitRef.current = Date.now();
         setStatus('success');
         setForm({ name: '', email: '', message: '' });
       } else {
+        trackFormSubmit('error', secondsToComplete(), form.message.length);
         setStatus('error');
       }
     } catch {
+      trackFormSubmit('error', secondsToComplete(), form.message.length);
       setStatus('error');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    // data-clarity-mask: belt-and-braces on top of Clarity's default masking,
+    // so a session replay can never show someone's name, email or message.
+    <form
+      ref={formRef}
+      onSubmit={handleSubmit}
+      data-clarity-mask="true"
+      className="flex flex-col gap-4"
+    >
       {/* Honeypot: invisible to humans, bots auto-fill it */}
       <input
         type="text"
@@ -99,6 +171,8 @@ function ContactForm() {
             placeholder="Your name"
             value={form.name}
             onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             className={fieldClass}
           />
         </div>
@@ -112,6 +186,8 @@ function ContactForm() {
             placeholder="you@company.com"
             value={form.email}
             onChange={handleChange}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
             className={fieldClass}
           />
         </div>
@@ -127,6 +203,8 @@ function ContactForm() {
           placeholder="What are you building, and what do you need?"
           value={form.message}
           onChange={handleChange}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           className={`${fieldClass} resize-y`}
         />
       </div>

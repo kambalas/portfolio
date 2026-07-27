@@ -15,9 +15,35 @@ import CTA from "../components/sections/CTA.jsx";
 import Contact from "../components/sections/Contact.jsx";
 import Footer from "../components/sections/Footer.jsx";
 
+import { useScrollDepth } from "../hooks/useScrollDepth.js";
+import { useSectionTracking } from "../hooks/useSectionTracking.js";
+import { usePageEngagement } from "../hooks/usePageEngagement.js";
+import { useInteractionQuality } from "../hooks/useInteractionQuality.js";
+
+// Observed for view + dwell time, in page order. Must match the ids rendered
+// below — a missing element is skipped rather than throwing.
+const TRACKED_SECTIONS = [
+  "about",
+  "metrics",
+  "brands",
+  "projects",
+  "services",
+  "reviews",
+  "experience",
+  "skills",
+  "cta",
+  "contact",
+];
+
 function Homepage() {
   const { switchTheme } = useContext(AppContext);
   const location = useLocation();
+
+  // ── Behavioural tracking ──
+  const maxScrollRef = useScrollDepth("homepage");
+  const currentSectionRef = useSectionTracking(TRACKED_SECTIONS);
+  usePageEngagement({ maxScrollRef, currentSectionRef, resetKey: "homepage" });
+  useInteractionQuality(currentSectionRef);
 
   // When arriving with a hash (e.g. back from a project via /#projects),
   // scroll to that section. Client-side navigations don't do this natively.

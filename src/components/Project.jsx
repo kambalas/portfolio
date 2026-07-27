@@ -1,12 +1,22 @@
 import { Link } from 'react-router-dom';
 import { FiExternalLink, FiGithub, FiArrowRight } from 'react-icons/fi';
-import { trackProjectClick } from '../lib/analytics';
+import { useCallback } from 'react';
+import { trackProjectClick, trackProjectLink, trackProjectHover } from '../lib/analytics';
+import { useHoverIntent } from '../hooks/useHoverIntent';
 
 // Editorial two-column row. Image and text swap sides on alternating rows
 // (controlled by `reverse`). Data is unchanged from user_info.
 function Project({ title, description, technologies, link, github, image, slug, index, reverse }) {
   const handleDetailsClick = () => trackProjectClick(title, slug);
   const number = String(index + 1).padStart(2, '0');
+
+  // Sustained hover on a row means the project caught their eye even if they
+  // never clicked — the closest signal to "which work do people care about".
+  const handleHover = useCallback(
+    (durationMs) => trackProjectHover(title, durationMs),
+    [title]
+  );
+  const hoverProps = useHoverIntent(handleHover);
 
   // Serve the 600px variant to small screens (half the bytes, same look).
   // When adding a new project image, generate its -600.webp variant too:
@@ -19,7 +29,10 @@ function Project({ title, description, technologies, link, github, image, slug, 
     : undefined;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center py-9 border-t border-hairline last:border-b">
+    <div
+      {...hoverProps}
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center py-9 border-t border-hairline last:border-b"
+    >
       {/* =========== IMAGE =========== */}
       <div className={`group relative rounded-xl overflow-hidden border border-hairline ${reverse ? 'md:order-2' : ''}`}>
         <div className="relative aspect-[3/2] overflow-hidden bg-band">
@@ -76,6 +89,7 @@ function Project({ title, description, technologies, link, github, image, slug, 
               href={link}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackProjectLink('demo', title, link, 'project_list')}
               className="flex items-center gap-1.5 text-sm font-semibold text-muted hover:text-clay transition-colors duration-200"
             >
               <FiExternalLink className="text-base" />
@@ -87,6 +101,7 @@ function Project({ title, description, technologies, link, github, image, slug, 
               href={github}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackProjectLink('github', title, github, 'project_list')}
               className="flex items-center gap-1.5 text-sm font-semibold text-muted hover:text-clay transition-colors duration-200"
             >
               <FiGithub className="text-base" />

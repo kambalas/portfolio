@@ -4,7 +4,7 @@ import user_info from "../../data/user_info.js";
 // dividers. Data is unchanged from user_info.metrics.
 function Metrics() {
   return (
-    <section className="wrap py-14 md:py-16">
+    <section id="metrics" className="wrap py-14 md:py-16">
       <div className="grid grid-cols-1 sm:grid-cols-3">
         {user_info.metrics.map((metric, index) => (
           <div

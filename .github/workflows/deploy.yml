@@ -24,6 +24,10 @@ jobs:
 
       - name: Build project
         run: yarn build
+        env:
+          # Add this under Settings → Secrets and variables → Actions → Variables.
+          # If unset the build still succeeds; Clarity just never loads.
+          VITE_CLARITY_ID: ${{ vars.VITE_CLARITY_ID }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

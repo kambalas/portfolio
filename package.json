@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "ga4:dimensions": "GA4_KEY_FILE=${GA4_KEY_FILE:-$HOME/.config/udevelops/ga4-key.json} node scripts/register-ga4-dimensions.mjs",
+    "ga4:dimensions:dry": "GA4_KEY_FILE=${GA4_KEY_FILE:-$HOME/.config/udevelops/ga4-key.json} node scripts/register-ga4-dimensions.mjs --dry-run"
   },
   "dependencies": {
     "lucide-react": "^0.395.0",

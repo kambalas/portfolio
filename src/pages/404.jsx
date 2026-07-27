@@ -1,8 +1,19 @@
 import { FaSadTear } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { track } from '../lib/analytics';
 
 function NotFound() {
     const navigate = useNavigate();
+
+    // A broken link is a lost visitor. `referrer` tells you whether it came
+    // from your own site (a bad internal link) or from outside.
+    useEffect(() => {
+        track('page_not_found', {
+            missing_path: window.location.pathname,
+            referrer: document.referrer || 'direct',
+        });
+    }, []);
 
     return (
         <div className="bg-zinc-100 dark:bg-zinc-800">
@@ -20,7 +31,7 @@ function NotFound() {
                             not found on this server.
                         </div>
                         <div className='text-center mt-6'>
-                            <button onClick={() => navigate("/")} className='bg-orange-700 hover:bg-orange-600 text-white px-6 py-4 rounded-xl'>Go back to homepage</button>
+                            <button onClick={() => { track('not_found_recovery_click', {}); navigate("/"); }} className='bg-orange-700 hover:bg-orange-600 text-white px-6 py-4 rounded-xl'>Go back to homepage</button>
                         </div>
                     </div>
                 </div>

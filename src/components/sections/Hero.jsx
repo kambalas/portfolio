@@ -1,4 +1,5 @@
 import user_info from "../../data/user_info.js";
+import { trackNavClick } from "../../lib/analytics";
 
 // Dark "warm ink" band with the photo on the left and positioning copy on the
 // right. Copy comes straight from user_info (unchanged data).
@@ -36,12 +37,14 @@ function Hero() {
           <div className="mt-9 flex flex-wrap items-center gap-5">
             <a
               href="#contact"
+              onClick={() => trackNavClick("Get in touch", "#contact", false)}
               className="rounded-full bg-[#ddbea9] px-7 py-3.5 text-[15px] font-bold text-[#2a241f] hover:bg-[#e8cdb9] transition-colors duration-300"
             >
               Get in touch
             </a>
             <a
               href="#projects"
+              onClick={() => trackNavClick("See selected work", "#projects", false)}
               className="text-[15px] font-semibold text-[#fff1e6] border-b-2 border-[#ddbea9] pb-0.5 hover:text-[#ddbea9] transition-colors duration-300"
             >
               See selected work →

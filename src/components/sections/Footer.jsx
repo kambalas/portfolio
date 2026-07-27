@@ -1,4 +1,5 @@
 import user_info from '../../data/user_info.js';
+import { trackOutbound, trackEmailClick } from '../../lib/analytics';
 
 const linkClass =
   "font-mono text-[11px] uppercase tracking-[0.1em] text-muted hover:text-clay transition-colors duration-300";
@@ -15,6 +16,7 @@ function Footer() {
             href={user_info.socials.github}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackOutbound(user_info.socials.github, 'GitHub', 'footer')}
             className={linkClass}
           >
             GitHub
@@ -23,11 +25,16 @@ function Footer() {
             href={user_info.socials.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackOutbound(user_info.socials.linkedin, 'LinkedIn', 'footer')}
             className={linkClass}
           >
             LinkedIn
           </a>
-          <a href={`mailto:${user_info.main.email}`} className={linkClass}>
+          <a
+            href={`mailto:${user_info.main.email}`}
+            onClick={() => trackEmailClick('footer')}
+            className={linkClass}
+          >
             Email
           </a>
         </div>

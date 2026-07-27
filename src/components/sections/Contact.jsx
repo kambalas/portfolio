@@ -2,6 +2,7 @@ import user_info from "../../data/user_info.js";
 import ContactForm from "./ContactForm.jsx";
 import { FaLinkedin, FaGithub } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import { trackOutbound, trackEmailClick, trackBookCall } from "../../lib/analytics";
 
 // Two-column contact band: brand-logo links on the left, message form on the
 // right. Links use the existing socials data.
@@ -27,6 +28,7 @@ function Contact() {
               href={user_info.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackOutbound(user_info.socials.linkedin, "LinkedIn", "contact")}
               aria-label="LinkedIn"
               className="text-[28px] text-ink hover:text-clay transition-colors duration-200"
             >
@@ -36,6 +38,7 @@ function Contact() {
               href={user_info.socials.github}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackOutbound(user_info.socials.github, "GitHub", "contact")}
               aria-label="GitHub"
               className="text-[28px] text-ink hover:text-clay transition-colors duration-200"
             >
@@ -43,6 +46,7 @@ function Contact() {
             </a>
             <a
               href={`mailto:${user_info.main.email}`}
+              onClick={() => trackEmailClick("contact")}
               aria-label="Email"
               className="text-[28px] text-ink hover:text-clay transition-colors duration-200"
             >
@@ -52,6 +56,7 @@ function Contact() {
               href="https://calendly.com/motiejunasugnius/discovery-call"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackBookCall("contact")}
               className="ml-2 inline-block rounded-full bg-clay px-5 py-2.5 text-[14px] font-semibold text-clayink hover:bg-clay-hover transition-colors duration-300"
             >
               Book a call
