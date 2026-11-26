@@ -2,7 +2,7 @@
 
 > Ugnius Motiejunas (Ugnius Motiejūnas) is a full-stack AI engineer from Vilnius, Lithuania, and the founder of Trimata (trimata.lt), a company that builds interactive 3D product configurators and 3D visualisations for manufacturers and online shops.
 
-He built and runs Bonder (bonder.lt), an events discovery platform for Vilnius with a native iOS app on the App Store, which reached 12.7k unique visitors and 200+ registered accounts within its first three months.
+He built Bonder (bonder.lt), an events discovery platform for Vilnius with a native iOS app on the App Store, which reached 12.7k unique visitors and 200+ registered accounts within its first three months.
 Before founding his own products he worked as a software engineer at Danske Bank (C#/.NET microservices, Kafka, Kubernetes) and Nordics Software (Go, React), and interned at Swedbank and Ruptela. In 2026 he spent two months at Network School and three months as a Builder at Lost Astronaut, a venture builder. He holds a BSc in Software Engineering from Vilnius University.
 
 ## Key facts
@@ -10,12 +10,12 @@ Before founding his own products he worked as a software engineer at Danske Bank
 - Role: Full-Stack AI Engineer & Founder
 - Location: Vilnius, Lithuania
 - Founder of Trimata: https://www.trimata.lt/
-- Founder of Bonder: https://bonder.lt/ (iOS app: https://apps.apple.com/lt/app/bonder-find-create-events/id6816441636)
+- Built Bonder as full-stack engineer (Aug-Oct 2026): https://bonder.lt/ (iOS app: https://apps.apple.com/lt/app/bonder-find-create-events/id6816441636)
 - Contact: motiejunasugnius@gmail.com
 
 ## Experience
 - Founder, Trimata (Nov 2026 – Present): https://www.trimata.lt/. Founded Trimata, MB in Vilnius: interactive 3D product configurators, 3D product views with AR, and 3D visualisation for manufacturers and e-shops.
-- Founder & Full-Stack Engineer, Bonder (Sep 2026 – Present): https://bonder.lt/. Designed, built and launched an events platform for Vilnius and its native iOS app (live on the App Store since Oct 2026).
+- Full-Stack Engineer, Bonder (Aug 2026 – Oct 2026): https://bonder.lt/. Designed, built and launched an events platform for Vilnius and its native iOS app (live on the App Store since Oct 2026).
 - Builder, Lost Astronaut (Aug 2026 – Oct 2026): https://lostastronaut.space/. Builder at Lost Astronaut, a venture investor and venture builder that develops startup concepts in-house and backs founders.
 - Resident, Network School (May 2026 – Jul 2026): https://ns.com/. Spent two months at Network School, the startup society for builders and techno-optimists founded by Balaji Srinivasan.
 - Full Stack AI Engineer, Starkodas (Apr 2026 – Present). Built multi-tenant AI chatbot SaaS with an embeddable, knowledge-base-trained widget.
