@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import user_info from '../data/user_info.js';
-import { FiArrowLeft, FiExternalLink, FiGithub } from 'react-icons/fi';
+import { FiArrowLeft, FiExternalLink, FiGithub, FiSmartphone } from 'react-icons/fi';
 import { trackProjectLink, trackBackToProjects } from '../lib/analytics';
 import { useScrollDepth } from '../hooks/useScrollDepth';
 import { usePageEngagement } from '../hooks/usePageEngagement';
@@ -13,6 +13,8 @@ import { useInteractionQuality } from '../hooks/useInteractionQuality';
 const IMAGE_DIMENSIONS = {
   'projects/business-website.webp': { width: 1200, height: 730 },
   'projects/chatbot.webp': { width: 1200, height: 800 },
+  'projects/bonder.webp': { width: 1200, height: 800 },
+  'projects/trimata.webp': { width: 1200, height: 800 },
 };
 const DEFAULT_DIMENSIONS = { width: 1200, height: 676 };
 
@@ -93,6 +95,19 @@ function ProjectDetails() {
                 </p>
               </div>
 
+              {/* Verified numbers */}
+              {project.stats && (
+                <dl className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  {project.stats.map((stat) => (
+                    <div key={stat.label}>
+                      <dt className="sr-only">{stat.label}</dt>
+                      <dd className="font-serif text-[34px] leading-none text-clay">{stat.value}</dd>
+                      <dd className="mt-1.5 text-[13px] text-muted">{stat.label}</dd>
+                    </div>
+                  ))}
+                </dl>
+              )}
+
               {/* Technologies */}
               <div className="mt-6">
                 <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-faint mb-3">
@@ -172,7 +187,19 @@ function ProjectDetails() {
                     className="inline-flex items-center gap-2 rounded-full bg-clay hover:bg-clay-hover px-6 py-3 text-clayink font-semibold text-sm transition-colors duration-200"
                   >
                     <FiExternalLink />
-                    Live Demo
+                    {project.slug === 'bonder' || project.slug === 'trimata' ? 'Visit site' : 'Live Demo'}
+                  </a>
+                )}
+                {project.appStore && (
+                  <a
+                    href={project.appStore}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => trackProjectLink('app_store', project.title, project.appStore, 'project_detail')}
+                    className="inline-flex items-center gap-2 rounded-full border border-hairline px-6 py-3 text-ink hover:border-clay hover:text-clay font-semibold text-sm transition-colors duration-200"
+                  >
+                    <FiSmartphone />
+                    iOS app on the App Store
                   </a>
                 )}
                 {project.github && (

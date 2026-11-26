@@ -55,7 +55,7 @@ function Project({ title, description, technologies, link, github, image, slug, 
           {/* Hover overlay */}
           <div className="absolute inset-0 bg-[#2a241f]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
             <Link
-              to={`/project/${slug}`}
+              to={`/project/${slug}/`}
               onClick={handleDetailsClick}
               className="px-5 py-2.5 rounded-full bg-[#fff1e6] text-[#2a241f] text-sm font-semibold
                 hover:bg-[#ddbea9] hover:text-[#2a241f] transition-colors duration-200 flex items-center gap-2"
@@ -109,7 +109,7 @@ function Project({ title, description, technologies, link, github, image, slug, 
             </a>
           )}
           <Link
-            to={`/project/${slug}`}
+            to={`/project/${slug}/`}
             onClick={handleDetailsClick}
             className="flex items-center gap-1.5 text-sm font-semibold text-clay hover:gap-2.5 transition-all duration-200"
           >

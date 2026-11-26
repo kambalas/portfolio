@@ -1,4 +1,4 @@
-import { AppContext } from "../App.jsx";
+import { AppContext } from "../context.js";
 import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 

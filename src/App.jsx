@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Homepage from './pages/Homepage';
-import { lazy, Suspense, useEffect, useState, createContext } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
+import { AppContext } from './context.js';
 import { initAnalytics, setUserProperties, trackThemeToggle } from './lib/analytics';
 import { useWebVitals } from './hooks/useWebVitals';
 import RouteTracker from './components/RouteTracker';
@@ -17,7 +18,7 @@ const scheduleIdle =
     : (cb) => setTimeout(cb, 1500);
 scheduleIdle(() => initAnalytics());
 
-export const AppContext = createContext();
+export { AppContext };
 
 // Theme-matching blank screen while a lazy route chunk loads (imperceptible
 // on fast connections, avoids a white flash on slow ones).

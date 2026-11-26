@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr src/entry-server.jsx --outDir dist-ssr && node scripts/prerender.mjs",
     "lint": "eslint src --max-warnings 0",
     "preview": "vite preview",
     "ga4:dimensions": "GA4_KEY_FILE=${GA4_KEY_FILE:-$HOME/.config/udevelops/ga4-key.json} node scripts/register-ga4-dimensions.mjs",

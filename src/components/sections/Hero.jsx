@@ -11,7 +11,7 @@ function Hero() {
         <div>
           <img
             src={`${import.meta.env.BASE_URL}${user_info.main.photo}`}
-            alt={user_info.main.name}
+            alt={`${user_info.main.name}, full-stack AI engineer and founder of Trimata`}
             width="510"
             height="557"
             loading="eager"
@@ -19,14 +19,14 @@ function Hero() {
             decoding="async"
             className="w-full h-auto max-w-[320px] md:max-w-none rounded-2xl"
           />
-          <p className="mt-3 font-mono text-[10px] text-[#cdbdac]">
-            {user_info.main.name}
-          </p>
         </div>
 
         {/* Copy */}
         <div>
           <h1 className="font-serif text-[40px] sm:text-[46px] lg:text-[50px] font-normal leading-[1.08] text-[#fff1e6]">
+            <span className="block font-mono text-[13px] uppercase tracking-[0.14em] text-[#ddbea9] mb-4">
+              {user_info.main.name} · {user_info.main.location}
+            </span>
             {user_info.main.role}
           </h1>
 

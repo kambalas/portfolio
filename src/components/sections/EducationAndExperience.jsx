@@ -1,6 +1,7 @@
 import user_info from "../../data/user_info.js";
+import { trackOutbound } from "../../lib/analytics";
 
-function TimelineEntry({ duration, logo, title, subtitle, descriptions }) {
+function TimelineEntry({ duration, logo, title, subtitle, descriptions, url }) {
   return (
     <div className="relative">
       <span className="absolute -left-[31px] top-[6px] w-[9px] h-[9px] rounded-full bg-clay" />
@@ -12,7 +13,21 @@ function TimelineEntry({ duration, logo, title, subtitle, descriptions }) {
           className="w-9 h-9 rounded-lg object-contain bg-white p-[3px]"
         />
         <div className="leading-tight">
-          <div className="font-bold text-[17px] text-ink">{title}</div>
+          <div className="font-bold text-[17px] text-ink">
+            {url ? (
+              <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackOutbound(url, title, 'experience')}
+                className="hover:text-clay underline decoration-hairline underline-offset-4 transition-colors duration-200"
+              >
+                {title}
+              </a>
+            ) : (
+              title
+            )}
+          </div>
           <div className="text-[14px] text-muted">{subtitle}</div>
         </div>
       </div>
@@ -32,9 +47,16 @@ function EducationAndExperience() {
     <section id="experience" className="scroll-mt-20 bg-band">
       <div className="wrap py-16">
         <span className="eyebrow">04 · Background</span>
-        <h2 className="mt-3.5 mb-11 font-serif text-[30px] sm:text-[34px] font-normal text-ink">
+        <h2 className="mt-3.5 mb-8 font-serif text-[30px] sm:text-[34px] font-normal text-ink">
           Education &amp; experience.
         </h2>
+
+        {/* Factual bio: the paragraph search engines and AI assistants quote */}
+        <div id="bio" className="max-w-[760px] mb-12 space-y-4 text-[16px] leading-[1.7] text-muted">
+          {user_info.main.bio.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[0.82fr_1.18fr] gap-12 md:gap-14">
           {/* Education */}
@@ -69,6 +91,7 @@ function EducationAndExperience() {
                   title={exp.company}
                   subtitle={exp.position}
                   descriptions={exp.descriptions}
+                  url={exp.url}
                 />
               ))}
             </div>

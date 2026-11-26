@@ -2,11 +2,41 @@ const info = {
   // ============ MAIN DETAILS ============
   main: {
     name: 'Ugnius Motiejunas',
+    nameNative: 'Ugnius Motiejūnas',
     description:
-  'Full-Stack AI Engineer building intelligent systems that help businesses automate workflows, unlock insights from data, and operate more efficiently. Combines strong full-stack engineering foundations with hands-on experience in scalable AI and LLM-powered applications.',
-    role: 'Full-Stack AI Engineer',
+      'Full-Stack AI Engineer and founder of Trimata. I deliver production-grade systems and products end to end: from banking microservices at Danske Bank to Bonder, an events platform and iOS app with 12.7k visitors, and Trimata, a studio building interactive 3D product configurators.',
+    role: 'Full-Stack AI Engineer & Founder',
+    shortRole: 'AI Engineer · Founder',
+    location: 'Vilnius, Lithuania',
     photo: 'photo.webp',
     email: 'motiejunasugnius@gmail.com',
+    // Plain, factual third-person bio. Search engines and AI assistants quote
+    // this kind of text verbatim, so keep every claim true and specific.
+    bio: [
+      'Ugnius Motiejunas (Ugnius Motiejūnas) is a full-stack AI engineer from Vilnius, Lithuania, and the founder of Trimata (trimata.lt), a company that builds interactive 3D product configurators and 3D visualisations for manufacturers and online shops.',
+      'He built and runs Bonder (bonder.lt), an events discovery platform for Vilnius with a native iOS app on the App Store, which reached 12.7k unique visitors and 200+ registered accounts within its first three months.',
+      'Before founding his own products he worked as a software engineer at Danske Bank (C#/.NET microservices, Kafka, Kubernetes) and Nordics Software (Go, React), and interned at Swedbank and Ruptela. In 2026 he spent two months at Network School and three months as a Builder at Lost Astronaut, a venture builder. He holds a BSc in Software Engineering from Vilnius University.',
+    ],
+  },
+
+  // ============ SITE / SEO ============
+  site: {
+    url: 'https://udevelops.com',
+    title: 'Ugnius Motiejunas | Full-Stack AI Engineer, Founder of Trimata',
+    description:
+      'Ugnius Motiejunas is a full-stack AI engineer from Vilnius and founder of Trimata (3D product configurators). Built Bonder, an events platform and iOS app. Ex-Danske Bank, Network School, Lost Astronaut.',
+    knowsAbout: [
+      'Full-stack development',
+      'AI agents and LLM applications',
+      'Retrieval-augmented generation (RAG)',
+      'Three.js and interactive 3D product configurators',
+      'iOS app development',
+      'Go',
+      'C# / .NET microservices',
+      'React and TypeScript',
+      'Kubernetes',
+      'Technical SEO',
+    ],
   },
 
   // ============ SOCIAL LINKS ============
@@ -17,6 +47,9 @@ const info = {
     instagram: '',
     facebook: '',
     upwork: 'https://www.upwork.com/freelancers/~0185a75fd0cba7d271?mp_source=share',
+    trimata: 'https://www.trimata.lt/',
+    bonder: 'https://bonder.lt/',
+    appStore: 'https://apps.apple.com/lt/app/bonder-find-create-events/id6816441636',
   },
 
   // ============ TESTIMONIALS (real reviews only) ============
@@ -45,6 +78,81 @@ const info = {
 
   // ============ PROJECTS ============
   projects: [
+    {
+      title: 'Bonder: Events Platform & iOS App',
+      description:
+        'Bonder (bonder.lt) is an events discovery platform for Vilnius: a web app plus a native iOS app on the App Store. I designed, built and grew it solo, from the backend and event import pipeline to SEO and the App Store release. 12.7k unique visitors, 205 registered accounts and 1,068 events listed in its first three months.',
+      technologies:
+        'TypeScript, Next.js, React Native, Expo, iOS, PostgreSQL, Railway, PostHog, LLM-based event deduplication, Programmatic SEO',
+      github: '',
+      link: 'https://bonder.lt/',
+      appStore: 'https://apps.apple.com/lt/app/bonder-find-create-events/id6816441636',
+      image: 'projects/bonder.webp',
+      slug: 'bonder',
+      details:
+        'Bonder is a product I founded and shipped end to end. People find what is on in Vilnius today, RSVP, see who else is going and buy tickets; organisers create events and invite friends. Behind it is a pipeline that scrapes and imports events from ticketing sites and venues, deduplicates them with an LLM, and publishes SEO landing pages for seasons, venues and dates. The native iOS app passed App Store review and launched on 29 October 2026. Numbers below are from PostHog and the production database, September to November 2026.',
+      stats: [
+        { value: '12.7k', label: 'unique visitors' },
+        { value: '205', label: 'registered accounts' },
+        { value: '29.5k', label: 'pageviews' },
+        { value: '1,068', label: 'events listed' },
+      ],
+      features: [
+        'Native iOS app (React Native / Expo) live on the App Store, with push notifications and deep links into events',
+        'Event import pipeline: scrapers for ticketing sites and venues, LLM deduplication, and a reviewed import into production',
+        'RSVPs, friends, private events with invitations, photo albums and comments',
+        'Programmatic SEO: date, venue and seasonal guide pages, IndexNow and Search Console monitoring; Halloween guides reached 1,700+ Google clicks a week',
+        'Product analytics funnels in PostHog: install banner, sign-up gate and ticket click-through tracking',
+        'Admin console with an inbox for inbound email, moderation and event approval',
+      ],
+      useCases: [
+        {
+          title: 'Event discovery',
+          description: 'Find what is on tonight in Vilnius by category, map or venue, and see which friends are going.',
+        },
+        {
+          title: 'Organisers',
+          description: 'Create public or private events, invite people and collect RSVPs without a ticketing contract.',
+        },
+        {
+          title: 'Venues',
+          description: 'Venue pages and party request forms bring event and booking leads to bars and clubs.',
+        },
+      ],
+    },
+    {
+      title: 'Trimata: Interactive 3D Product Configurators',
+      description:
+        'Trimata (trimata.lt) is the company I founded in November 2026. We build browser-based 3D configurators for makers of saunas, kitchens, doors, roofing and decks: buyers choose size, colours and add-ons, see the price, and send a precise specification.',
+      technologies: 'Three.js, WebGL, Blender, Next.js, TypeScript, PostHog, Railway',
+      github: '',
+      link: 'https://www.trimata.lt/',
+      image: 'projects/trimata.webp',
+      slug: 'trimata',
+      details:
+        'Trimata turns a manufacturer’s product catalogue into a live 3D configurator that can be embedded on their own website with one line of code. Models are prepared in Blender and rendered in the browser with Three.js, with real dimensions drawn on the model, a price that updates as you pick options, and a summary the buyer sends as a quote request. Live demos include kitchens, saunas with hot tubs, Vision panel doors, a roofing estimator and a deck planner.',
+      features: [
+        'Three.js configurators with real-time materials, dimensions drawn on the model and live pricing',
+        'One-line embed for partner websites, plus direct demo links that load 3D only on click to keep pages fast',
+        'Blender pipeline from product photos and drawings to optimised web models',
+        'Per-visit analytics of what buyers choose, how long the 3D takes to load and where they leave',
+        '100+ programmatic SEO pages in Lithuanian and English',
+      ],
+      useCases: [
+        {
+          title: 'Manufacturers',
+          description: 'Sauna, door, kitchen and roofing makers get fewer back-and-forth emails and exact specifications.',
+        },
+        {
+          title: 'E-shops',
+          description: '3D product views with AR on product pages, without forcing 3D on every visitor.',
+        },
+        {
+          title: 'Real estate',
+          description: 'Interactive building and apartment selectors for developers.',
+        },
+      ],
+    },
     {
       title: 'Embeddable AI Chatbot Widget',
       description:
@@ -269,6 +377,56 @@ const info = {
   // ============ EXPERIENCE ============
   experience: [
     {
+      position: 'Founder',
+      company: 'Trimata',
+      url: 'https://www.trimata.lt/',
+      duration: 'Nov 2026 – Present',
+      image: 'trimata.webp',
+      descriptions: [
+        'Founded Trimata, MB in Vilnius: interactive 3D product configurators, 3D product views with AR, and 3D visualisation for manufacturers and e-shops.',
+        'Built live Three.js configurators for kitchens, saunas, doors, roofing and decks, embeddable on client sites with one line of code.',
+        'Run sales, pricing, pilots with first clients, and the site with 100+ programmatic SEO pages.',
+      ],
+    },
+    {
+      position: 'Founder & Full-Stack Engineer',
+      company: 'Bonder',
+      url: 'https://bonder.lt/',
+      duration: 'Sep 2026 – Present',
+      image: 'bonder.webp',
+      descriptions: [
+        'Designed, built and launched an events platform for Vilnius and its native iOS app (live on the App Store since Oct 2026).',
+        'Grew it to 12.7k unique visitors, 205 registered accounts and 1,068 events listed in three months, mostly through programmatic SEO.',
+        'Built the event import pipeline (scrapers, LLM deduplication), analytics funnels and admin tooling.',
+      ],
+    },
+    {
+      position: 'Builder',
+      company: 'Lost Astronaut',
+      url: 'https://lostastronaut.space/',
+      duration: 'Aug 2026 – Oct 2026',
+      startDate: '2026-08',
+      endDate: '2026-10',
+      image: 'lostastronaut.webp',
+      descriptions: [
+        'Builder at Lost Astronaut, a venture investor and venture builder that develops startup concepts in-house and backs founders.',
+        'Took venture concepts from idea to working, production-grade products.',
+      ],
+    },
+    {
+      position: 'Resident',
+      company: 'Network School',
+      url: 'https://ns.com/',
+      duration: 'May 2026 – Jul 2026',
+      startDate: '2026-05',
+      endDate: '2026-07',
+      image: 'networkschool.webp',
+      descriptions: [
+        'Spent two months at Network School, the startup society for builders and techno-optimists founded by Balaji Srinivasan.',
+        'Lived and built alongside founders and engineers from around the world while shipping my own products.',
+      ],
+    },
+    {
       position: 'Full Stack AI Engineer',
       company: 'Starkodas',
       duration: 'Apr 2026 – Present',
@@ -365,19 +523,19 @@ const info = {
   // ============ METRICS ============
   metrics: [
     {
-      value: '5',
-      label: 'Projects Completed',
-      description: 'Production-grade apps shipped to clients.',
+      value: '12.7k',
+      label: 'Visitors on Bonder',
+      description: 'Events platform and iOS app I built and launched, 205 registered accounts.',
     },
     {
       value: '4+',
       label: 'Years of Experience',
-      description: 'Building robust software and AI solutions for 4+ years',
+      description: 'From Danske Bank microservices to my own products in production.',
     },
     {
-      value: '4',
-      label: 'Clients',
-      description: 'From startups to enterprise clients like Coca-Cola',
+      value: '2',
+      label: 'Products Founded',
+      description: 'Bonder (bonder.lt) and Trimata (trimata.lt), both live.',
     },
   ],
 

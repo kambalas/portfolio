@@ -42,7 +42,7 @@ function Nav({ switchTheme }) {
             {user_info.main.name}
           </span>
           <span className="mt-0.5 font-mono text-[10px] uppercase tracking-[0.14em] text-faint">
-            {user_info.main.role}
+            {user_info.main.shortRole}
           </span>
         </a>
 
@@ -64,7 +64,7 @@ function Nav({ switchTheme }) {
           <a
             href="#contact"
             onClick={() => trackBookCall("nav", "contact_section")}
-            className="rounded-full bg-clay px-4 py-2.5 text-[13px] font-semibold text-clayink hover:bg-clay-hover transition-colors duration-300"
+            className="whitespace-nowrap rounded-full bg-clay px-3 sm:px-4 py-2.5 text-[12px] sm:text-[13px] font-semibold text-clayink hover:bg-clay-hover transition-colors duration-300"
           >
             Book a call →
           </a>

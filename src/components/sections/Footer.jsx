@@ -11,7 +11,25 @@ function Footer() {
         <span className="font-mono text-[11px] text-faint">
           © 2026 {user_info.main.name}
         </span>
-        <div className="flex gap-6">
+        <div className="flex flex-wrap gap-6">
+          <a
+            href={user_info.socials.trimata}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackOutbound(user_info.socials.trimata, 'Trimata', 'footer')}
+            className={linkClass}
+          >
+            Trimata
+          </a>
+          <a
+            href={user_info.socials.bonder}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackOutbound(user_info.socials.bonder, 'Bonder', 'footer')}
+            className={linkClass}
+          >
+            Bonder
+          </a>
           <a
             href={user_info.socials.github}
             target="_blank"
