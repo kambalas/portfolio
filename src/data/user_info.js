@@ -525,19 +525,19 @@ const info = {
   // ============ METRICS ============
   metrics: [
     {
-      value: '12.7k',
-      label: 'Visitors on Bonder',
-      description: 'Events platform and iOS app I built and launched, 205 registered accounts.',
+      value: '5',
+      label: 'Projects Completed',
+      description: 'Production-grade apps shipped to clients.',
     },
     {
-      value: '4+',
+      value: '5+',
       label: 'Years of Experience',
-      description: 'From Danske Bank microservices to my own products in production.',
+      description: 'Building robust software and AI solutions for 5+ years',
     },
     {
-      value: '2',
-      label: 'Products Shipped',
-      description: 'Bonder (bonder.lt) and Trimata (trimata.lt), both live.',
+      value: '15+',
+      label: 'Clients',
+      description: 'From startups to enterprise clients like Coca-Cola',
     },
   ],
 
