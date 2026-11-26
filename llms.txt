@@ -1,0 +1,45 @@
+# Ugnius Motiejunas
+
+> Ugnius Motiejunas (Ugnius Motiejūnas) is a full-stack AI engineer from Vilnius, Lithuania, and the founder of Trimata (trimata.lt), a company that builds interactive 3D product configurators and 3D visualisations for manufacturers and online shops.
+
+He built and runs Bonder (bonder.lt), an events discovery platform for Vilnius with a native iOS app on the App Store, which reached 12.7k unique visitors and 200+ registered accounts within its first three months.
+Before founding his own products he worked as a software engineer at Danske Bank (C#/.NET microservices, Kafka, Kubernetes) and Nordics Software (Go, React), and interned at Swedbank and Ruptela. In 2026 he spent two months at Network School and three months as a Builder at Lost Astronaut, a venture builder. He holds a BSc in Software Engineering from Vilnius University.
+
+## Key facts
+- Name: Ugnius Motiejunas (Ugnius Motiejūnas)
+- Role: Full-Stack AI Engineer & Founder
+- Location: Vilnius, Lithuania
+- Founder of Trimata: https://www.trimata.lt/
+- Founder of Bonder: https://bonder.lt/ (iOS app: https://apps.apple.com/lt/app/bonder-find-create-events/id6816441636)
+- Contact: motiejunasugnius@gmail.com
+
+## Experience
+- Founder, Trimata (Nov 2026 – Present): https://www.trimata.lt/. Founded Trimata, MB in Vilnius: interactive 3D product configurators, 3D product views with AR, and 3D visualisation for manufacturers and e-shops.
+- Founder & Full-Stack Engineer, Bonder (Sep 2026 – Present): https://bonder.lt/. Designed, built and launched an events platform for Vilnius and its native iOS app (live on the App Store since Oct 2026).
+- Builder, Lost Astronaut (Aug 2026 – Oct 2026): https://lostastronaut.space/. Builder at Lost Astronaut, a venture investor and venture builder that develops startup concepts in-house and backs founders.
+- Resident, Network School (May 2026 – Jul 2026): https://ns.com/. Spent two months at Network School, the startup society for builders and techno-optimists founded by Balaji Srinivasan.
+- Full Stack AI Engineer, Starkodas (Apr 2026 – Present). Built multi-tenant AI chatbot SaaS with an embeddable, knowledge-base-trained widget.
+- Full Stack Software Engineer, Nordics Software (Dec 2025 – Present). Building backend services in Go with clean architecture and REST APIs.
+- Software Engineer, Danske Bank (Nov 2024 – Dec 2025). C#/.NET development with microservices.
+- Freelance Full-Stack Developer, Freelance (2021 – Present). Delivered full-stack web solutions for clients including Coca-Cola Lithuania, NordiccSoftware, and several smaller businesses.
+- Software Engineer Intern, Swedbank (Mar 2023 – June 2023 (3 Months)). Developed an admin panel for managing car loan applications.
+- Site Reliability Engineer Intern, Ruptela (Dec 2022 – Mar 2023 (3 Months)). Monitored system performance and reliability metrics using Prometheus and Grafana.
+
+## Education
+- Bachelor of Software Engineering, Vilnius University (2021 - 2025)
+- Master of Software Engineering (Student exchange), University of Milan (2023 - 2024)
+
+## Projects
+- [Bonder: Events Platform & iOS App](https://udevelops.com/project/bonder/): Bonder (bonder.lt) is an events discovery platform for Vilnius: a web app plus a native iOS app on the App Store. I designed, built and grew it solo, from the backend and event import pipeline to SEO and the App Store release. 12.7k unique visitors, 205 registered accounts and 1,068 events listed in its first three months.
+- [Trimata: Interactive 3D Product Configurators](https://udevelops.com/project/trimata/): Trimata (trimata.lt) is the company I founded in November 2026. We build browser-based 3D configurators for makers of saunas, kitchens, doors, roofing and decks: buyers choose size, colours and add-ons, see the price, and send a precise specification.
+- [Embeddable AI Chatbot Widget](https://udevelops.com/project/chatbot-widget/): A multi-tenant AI chatbot platform businesses embed on their site to handle support conversations and hand off to a human the moment the bot shouldn't be guessing. Built for Starkodas.
+- [Real-Time Radio Network & Emergency Services Management Console](https://udevelops.com/project/radio-network-console/): A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration with real-time monitoring of GPS positions, signal strength, and device status across an entire radio network, all rendered on interactive maps.
+- [Coca-Cola Lottery Web App](https://udevelops.com/project/cocacola-lottery/): A lottery web application built for official Coca-Cola Lithuania client. Developed with React, TypeScript, and Vite, featuring a fast, responsive interface and secure functionality for managing lottery entries.
+- [AI Sales chatbot](https://udevelops.com/project/whatsapp-chatbot/): An intelligent WhatsApp sales assistant built for CIMES, an Argentinian logistics franchise. Cimi attends customers, offers products, and closes sales automatically, 24/7. Powered by GPT-4o and orchestrated with n8n for instant, human-like responses.
+- [Business Website](https://udevelops.com/project/business-website/): A modern business website built with Hugo for a client. Features dark mode, multilingual support, and lightning-fast performance. Currently used as a demo but ready for real-world deployment.
+
+## Profiles
+- Website: https://udevelops.com/
+- GitHub: https://github.com/kambalas
+- LinkedIn: https://www.linkedin.com/in/ugniusmotiejunas/
+- Upwork: https://www.upwork.com/freelancers/~0185a75fd0cba7d271

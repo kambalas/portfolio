@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts — only the weights actually used on the site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Hero photo is the LCP element — fetch it alongside the CSS/JS -->
+  <link rel="preload" as="image" href="/photo.webp" fetchpriority="high">
+
+  <title>Real-Time Radio Network &amp; Emergency Services Management Console | Ugnius Motiejunas</title>
+  <meta name="description" content="A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration…" />
+  <link rel="canonical" href="https://udevelops.com/project/radio-network-console/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:site_name" content="Ugnius Motiejunas" />
+  <meta property="og:title" content="Real-Time Radio Network &amp; Emergency Services Management Console | Ugnius Motiejunas" />
+  <meta property="og:description" content="A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration…" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://udevelops.com/project/radio-network-console/" />
+  <meta property="og:image" content="https://udevelops.com/projects/radio.webp" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Real-Time Radio Network &amp; Emergency Services Management Console | Ugnius Motiejunas" />
+  <meta name="twitter:description" content="A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration…" />
+  <meta name="twitter:image" content="https://udevelops.com/projects/radio.webp" />
+  <link rel="me" href="https://github.com/kambalas" />
+  <link rel="me" href="https://www.linkedin.com/in/ugniusmotiejunas/" />
+  <link rel="alternate" type="text/plain" title="LLM summary" href="https://udevelops.com/llms.txt" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CreativeWork","@id":"https://udevelops.com/project/radio-network-console/#work","name":"Real-Time Radio Network & Emergency Services Management Console","url":"https://udevelops.com/project/radio-network-console/","description":"A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration (radio units, base stations, teams, users) with real-time monitoring of GPS positions, signal strength, and device status across an entire radio network, all rendered on interactive maps. Built with a strict service layer architecture and Firebase authenticated API access, designed for NOC teams who need reliable, at-a-glance visibility into distributed hardware.","image":"https://udevelops.com/projects/radio.webp","keywords":"React 19, TypeScript, Vite, Material UI, TanStack Query, React Hook Form, Zod, Firebase Auth, Mapbox GL, Axios, i18next","author":{"@id":"https://udevelops.com/#person"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ugnius Motiejunas","item":"https://udevelops.com/"},{"@type":"ListItem","position":2,"name":"Real-Time Radio Network & Emergency Services Management Console","item":"https://udevelops.com/project/radio-network-console/"}]},{"@type":"Person","@id":"https://udevelops.com/#person","name":"Ugnius Motiejunas","alternateName":["Ugnius Motiejūnas","udevelops"],"givenName":"Ugnius","familyName":"Motiejunas","url":"https://udevelops.com/","image":"https://udevelops.com/photo.webp","jobTitle":"Full-Stack AI Engineer & Founder","email":"mailto:motiejunasugnius@gmail.com","nationality":{"@type":"Country","name":"Lithuania"},"homeLocation":{"@type":"Place","name":"Vilnius, Lithuania"},"knowsAbout":["Full-stack development","AI agents and LLM applications","Retrieval-augmented generation (RAG)","Three.js and interactive 3D product configurators","iOS app development","Go","C# / .NET microservices","React and TypeScript","Kubernetes","Technical SEO"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Vilnius University"},{"@type":"CollegeOrUniversity","name":"University of Milan"}],"worksFor":[{"@id":"https://www.trimata.lt/#organization"},{"@id":"https://bonder.lt/#organization"}],"memberOf":[{"@type":"OrganizationRole","roleName":"Builder","startDate":"2026-08","endDate":"2026-10","memberOf":{"@type":"Organization","name":"Lost Astronaut","url":"https://lostastronaut.space/"}},{"@type":"OrganizationRole","roleName":"Resident","startDate":"2026-05","endDate":"2026-07","memberOf":{"@type":"Organization","name":"Network School","url":"https://ns.com/"}}],"sameAs":["https://github.com/kambalas","https://www.linkedin.com/in/ugniusmotiejunas/","https://www.upwork.com/freelancers/~0185a75fd0cba7d271"]}]}</script>
+
+  <!-- Browser chrome color; kept in sync with the active theme below -->
+  <meta name="theme-color" content="#292420" />
+
+  <!-- Apply theme before first paint (defaults to dark) to avoid a light flash -->
+  <script>
+    (function () {
+      var isDark = true;
+      try {
+        isDark = (localStorage.getItem('theme') || 'dark') !== 'light';
+      } catch (e) { /* private mode etc. — keep dark */ }
+      if (isDark) document.documentElement.classList.add('dark');
+      var themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) themeColor.setAttribute('content', isDark ? '#292420' : '#f0efeb');
+    })();
+  </script>
+
+
+  <!-- GitHub Pages SPA redirect handler -->
+  <script>
+    (function(l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function(s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+
+  <script type="module" crossorigin src="/assets/index-DK8l7Cwc.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-BDkIgITv.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-KM1I_20l.css">
+</head>
+
+<body>
+  <div id="root"><div class="bg-paper text-ink min-h-screen lg:h-screen lg:overflow-hidden"><div class="wrap lg:h-full flex flex-col"><div class="pt-8 pb-2 shrink-0"><button class="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-clay transition-colors duration-200"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="text-base" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>Back to Projects</button></div><div class="flex-1 flex lg:items-center lg:overflow-hidden py-6"><div class="w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-12"><div class="flex flex-col lg:overflow-y-auto lg:pr-2 lg:max-h-[calc(100vh-8rem)]"><div><h1 class="font-serif text-[34px] sm:text-[44px] font-normal leading-tight text-ink">Real-Time Radio Network &amp; Emergency Services Management Console</h1><p class="mt-4 text-[16px] leading-[1.7] text-muted">A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration (radio units, base stations, teams, users) with real-time monitoring of GPS positions, signal strength, and device status across an entire radio network, all rendered on interactive maps. Built with a strict service layer architecture and Firebase authenticated API access, designed for NOC teams who need reliable, at-a-glance visibility into distributed hardware.</p></div><div class="mt-6"><p class="font-mono text-[10px] uppercase tracking-[0.16em] text-faint mb-3">Technologies</p><div class="flex flex-wrap gap-2"><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">React 19</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">TypeScript</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">Vite</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">Material UI</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">TanStack Query</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">React Hook Form</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">Zod</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">Firebase Auth</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">Mapbox GL</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">Axios</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">i18next</span></div></div><div class="mt-9"><p class="font-mono text-[10px] uppercase tracking-[0.16em] text-faint mb-3">Key Features</p><ul class="space-y-2.5"><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Full CRUD admin console for radio units, companies, teams, users, network types, and Android devices</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Real-time GPS and RSSI signal monitoring rendered on Mapbox coverage and heatmap views</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Firebase backed authentication with automatic token refresh and retry on expired sessions</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Per-protocol network driver metrics for TETRA, NXDN, and AKIS systems</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Dedicated ambulance fleet module tracking crew locations and patient care records</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">SDS messaging and status outbox tracking for auditing device communication</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Multi-language support across English, Lithuanian, German, and Spanish</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">URL driven filtering and pagination for consistent, shareable table views across every domain</span></li></ul></div></div><div class="flex flex-col lg:overflow-y-auto lg:max-h-[calc(100vh-8rem)]"><div class="rounded-2xl overflow-hidden border border-hairline shrink-0"><img src="/projects/radio.webp" alt="Real-Time Radio Network &amp; Emergency Services Management Console" width="1200" height="676" loading="eager" fetchPriority="high" decoding="async" class="w-full h-auto object-cover"/></div><div class="mt-4 flex flex-wrap gap-3"></div><div class="mt-8 rounded-2xl border border-hairline bg-surface p-6 flex flex-col gap-4"><p class="font-mono text-[10px] uppercase tracking-[0.16em] text-faint">Use Cases</p><ul class="flex flex-col gap-3.5"><li class="flex flex-col gap-0.5"><span class="text-sm font-bold text-ink">Network Operations</span><span class="text-[13px] text-muted leading-relaxed">Give NOC teams a single view of radio unit health, coverage, and signal strength across a whole service area, cutting the time it takes to diagnose connectivity issues.</span></li><li class="flex flex-col gap-0.5"><span class="text-sm font-bold text-ink">Emergency Fleet Coordination</span><span class="text-[13px] text-muted leading-relaxed">Track ambulance crews and their equipment in real time, tying GPS position and patient care data to the radios assigned to each vehicle.</span></li><li class="flex flex-col gap-0.5"><span class="text-sm font-bold text-ink">Device and User Administration</span><span class="text-[13px] text-muted leading-relaxed">Manage hundreds of radio units, Android handhelds, and personnel across multiple companies and teams from one interface instead of scattered vendor tools.</span></li></ul></div></div></div></div></div></div></div>
+</body>
+
+</html>

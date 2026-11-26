@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Fonts — only the weights actually used on the site -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Hero photo is the LCP element — fetch it alongside the CSS/JS -->
+  <link rel="preload" as="image" href="/photo.webp" fetchpriority="high">
+
+  <title>Business Website | Ugnius Motiejunas</title>
+  <meta name="description" content="A modern business website built with Hugo for a client. Features dark mode, multilingual support, and lightning-fast performance. Currently used as a demo…" />
+  <link rel="canonical" href="https://udevelops.com/project/business-website/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta property="og:site_name" content="Ugnius Motiejunas" />
+  <meta property="og:title" content="Business Website | Ugnius Motiejunas" />
+  <meta property="og:description" content="A modern business website built with Hugo for a client. Features dark mode, multilingual support, and lightning-fast performance. Currently used as a demo…" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://udevelops.com/project/business-website/" />
+  <meta property="og:image" content="https://udevelops.com/projects/business-website.webp" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Business Website | Ugnius Motiejunas" />
+  <meta name="twitter:description" content="A modern business website built with Hugo for a client. Features dark mode, multilingual support, and lightning-fast performance. Currently used as a demo…" />
+  <meta name="twitter:image" content="https://udevelops.com/projects/business-website.webp" />
+  <link rel="me" href="https://github.com/kambalas" />
+  <link rel="me" href="https://www.linkedin.com/in/ugniusmotiejunas/" />
+  <link rel="alternate" type="text/plain" title="LLM summary" href="https://udevelops.com/llms.txt" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CreativeWork","@id":"https://udevelops.com/project/business-website/#work","name":"Business Website","url":"https://udevelops.com/project/business-website/","description":"A statically generated business website using Hugo, designed for a client requiring multilingual content (EN/LT) and blazing-fast page loads. The site is fully themeable with dark mode support and deployed via GitHub Actions for zero-downtime updates.","image":"https://udevelops.com/projects/business-website.webp","keywords":"Hugo, HTML, CSS, JavaScript","author":{"@id":"https://udevelops.com/#person"},"sameAs":"https://kambalas.github.io/test-actions/en/"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Ugnius Motiejunas","item":"https://udevelops.com/"},{"@type":"ListItem","position":2,"name":"Business Website","item":"https://udevelops.com/project/business-website/"}]},{"@type":"Person","@id":"https://udevelops.com/#person","name":"Ugnius Motiejunas","alternateName":["Ugnius Motiejūnas","udevelops"],"givenName":"Ugnius","familyName":"Motiejunas","url":"https://udevelops.com/","image":"https://udevelops.com/photo.webp","jobTitle":"Full-Stack AI Engineer & Founder","email":"mailto:motiejunasugnius@gmail.com","nationality":{"@type":"Country","name":"Lithuania"},"homeLocation":{"@type":"Place","name":"Vilnius, Lithuania"},"knowsAbout":["Full-stack development","AI agents and LLM applications","Retrieval-augmented generation (RAG)","Three.js and interactive 3D product configurators","iOS app development","Go","C# / .NET microservices","React and TypeScript","Kubernetes","Technical SEO"],"alumniOf":[{"@type":"CollegeOrUniversity","name":"Vilnius University"},{"@type":"CollegeOrUniversity","name":"University of Milan"}],"worksFor":[{"@id":"https://www.trimata.lt/#organization"},{"@id":"https://bonder.lt/#organization"}],"memberOf":[{"@type":"OrganizationRole","roleName":"Builder","startDate":"2026-08","endDate":"2026-10","memberOf":{"@type":"Organization","name":"Lost Astronaut","url":"https://lostastronaut.space/"}},{"@type":"OrganizationRole","roleName":"Resident","startDate":"2026-05","endDate":"2026-07","memberOf":{"@type":"Organization","name":"Network School","url":"https://ns.com/"}}],"sameAs":["https://github.com/kambalas","https://www.linkedin.com/in/ugniusmotiejunas/","https://www.upwork.com/freelancers/~0185a75fd0cba7d271"]}]}</script>
+
+  <!-- Browser chrome color; kept in sync with the active theme below -->
+  <meta name="theme-color" content="#292420" />
+
+  <!-- Apply theme before first paint (defaults to dark) to avoid a light flash -->
+  <script>
+    (function () {
+      var isDark = true;
+      try {
+        isDark = (localStorage.getItem('theme') || 'dark') !== 'light';
+      } catch (e) { /* private mode etc. — keep dark */ }
+      if (isDark) document.documentElement.classList.add('dark');
+      var themeColor = document.querySelector('meta[name="theme-color"]');
+      if (themeColor) themeColor.setAttribute('content', isDark ? '#292420' : '#f0efeb');
+    })();
+  </script>
+
+
+  <!-- GitHub Pages SPA redirect handler -->
+  <script>
+    (function(l) {
+      if (l.search[1] === '/') {
+        var decoded = l.search.slice(1).split('&').map(function(s) {
+          return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+          l.pathname.slice(0, -1) + decoded + l.hash
+        );
+      }
+    }(window.location))
+  </script>
+
+  <script type="module" crossorigin src="/assets/index-DK8l7Cwc.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-BDkIgITv.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-KM1I_20l.css">
+</head>
+
+<body>
+  <div id="root"><div class="bg-paper text-ink min-h-screen lg:h-screen lg:overflow-hidden"><div class="wrap lg:h-full flex flex-col"><div class="pt-8 pb-2 shrink-0"><button class="inline-flex items-center gap-2 text-sm font-semibold text-muted hover:text-clay transition-colors duration-200"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="text-base" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>Back to Projects</button></div><div class="flex-1 flex lg:items-center lg:overflow-hidden py-6"><div class="w-full grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-8 lg:gap-12"><div class="flex flex-col lg:overflow-y-auto lg:pr-2 lg:max-h-[calc(100vh-8rem)]"><div><h1 class="font-serif text-[34px] sm:text-[44px] font-normal leading-tight text-ink">Business Website</h1><p class="mt-4 text-[16px] leading-[1.7] text-muted">A statically generated business website using Hugo, designed for a client requiring multilingual content (EN/LT) and blazing-fast page loads. The site is fully themeable with dark mode support and deployed via GitHub Actions for zero-downtime updates.</p></div><div class="mt-6"><p class="font-mono text-[10px] uppercase tracking-[0.16em] text-faint mb-3">Technologies</p><div class="flex flex-wrap gap-2"><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">Hugo</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">HTML</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">CSS</span><span class="inline-flex items-center py-1.5 px-3 rounded-full text-xs font-semibold text-clay" style="background:color-mix(in srgb, var(--clay) 12%, transparent)">JavaScript</span></div></div><div class="mt-9"><p class="font-mono text-[10px] uppercase tracking-[0.16em] text-faint mb-3">Key Features</p><ul class="space-y-2.5"><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Multilingual support (English and Lithuanian)</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Dark mode toggle with system preference detection</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Static generation for sub-second page loads</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">Automated CI/CD deployment via GitHub Actions</span></li><li class="flex items-start gap-2.5"><svg class="flex-shrink-0 w-4 h-4 mt-0.5 text-clay" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span class="text-sm text-muted leading-relaxed">SEO-optimized meta tags and Open Graph</span></li></ul></div></div><div class="flex flex-col lg:overflow-y-auto lg:max-h-[calc(100vh-8rem)]"><div class="rounded-2xl overflow-hidden border border-hairline shrink-0"><img src="/projects/business-website.webp" alt="Business Website" width="1200" height="730" loading="eager" fetchPriority="high" decoding="async" class="w-full h-auto object-cover"/></div><div class="mt-4 flex flex-wrap gap-3"><a href="https://kambalas.github.io/test-actions/en/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full bg-clay hover:bg-clay-hover px-6 py-3 text-clayink font-semibold text-sm transition-colors duration-200"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>Live Demo</a><a href="https://github.com/kambalas/test-actions" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 rounded-full border border-hairline px-6 py-3 text-ink hover:border-clay hover:text-clay font-semibold text-sm transition-colors duration-200"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>View on GitHub</a></div><div class="mt-8 rounded-2xl border border-hairline bg-surface p-6 flex flex-col gap-4"><p class="font-mono text-[10px] uppercase tracking-[0.16em] text-faint">Use Cases</p><ul class="flex flex-col gap-3.5"><li class="flex flex-col gap-0.5"><span class="text-sm font-bold text-ink">SMB Online Presence</span><span class="text-[13px] text-muted leading-relaxed">Give small businesses a professional, fast-loading site without ongoing hosting costs of dynamic platforms.</span></li><li class="flex flex-col gap-0.5"><span class="text-sm font-bold text-ink">International Expansion</span><span class="text-[13px] text-muted leading-relaxed">Launch localised landing pages in new markets quickly, validating demand before heavy investment.</span></li><li class="flex flex-col gap-0.5"><span class="text-sm font-bold text-ink">Content Marketing</span><span class="text-[13px] text-muted leading-relaxed">Static sites rank faster in search, reducing paid traffic dependency and cutting long-term acquisition costs.</span></li></ul></div></div></div></div></div></div></div>
+</body>
+
+</html>
