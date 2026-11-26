@@ -1,20 +1,20 @@
 # Ugnius Motiejunas
 
-> Ugnius Motiejunas (Ugnius Motiejūnas) is a full-stack AI engineer from Vilnius, Lithuania, and the founder of Trimata (trimata.lt), a company that builds interactive 3D product configurators and 3D visualisations for manufacturers and online shops.
+> Ugnius Motiejunas (Ugnius Motiejūnas) is a full-stack AI engineer from Vilnius, Lithuania. He builds Trimata (trimata.lt), interactive 3D product configurators and 3D visualisations for manufacturers and online shops.
 
 He built Bonder (bonder.lt), an events discovery platform for Vilnius with a native iOS app on the App Store, which reached 12.7k unique visitors and 200+ registered accounts within its first three months.
-Before founding his own products he worked as a software engineer at Danske Bank (C#/.NET microservices, Kafka, Kubernetes) and Nordics Software (Go, React), and interned at Swedbank and Ruptela. In 2026 he spent two months at Network School and three months as a Builder at Lost Astronaut, a venture builder. He holds a BSc in Software Engineering from Vilnius University.
+Earlier he worked as a software engineer at Danske Bank (C#/.NET microservices, Kafka, Kubernetes) and Nordics Software (Go, React), and interned at Swedbank and Ruptela. In 2026 he spent two months at Network School and three months as a Builder at Lost Astronaut, a venture builder. He holds a BSc in Software Engineering from Vilnius University.
 
 ## Key facts
 - Name: Ugnius Motiejunas (Ugnius Motiejūnas)
-- Role: Full-Stack AI Engineer & Founder
+- Role: Full-Stack AI Engineer
 - Location: Vilnius, Lithuania
-- Founder of Trimata: https://www.trimata.lt/
+- Trimata, 3D product configurators: https://www.trimata.lt/
 - Built Bonder as full-stack engineer (Aug-Oct 2026): https://bonder.lt/ (iOS app: https://apps.apple.com/lt/app/bonder-find-create-events/id6816441636)
 - Contact: motiejunasugnius@gmail.com
 
 ## Experience
-- Founder, Trimata (Nov 2026 – Present): https://www.trimata.lt/. Founded Trimata, MB in Vilnius: interactive 3D product configurators, 3D product views with AR, and 3D visualisation for manufacturers and e-shops.
+- 3D & Full-Stack Engineer, Trimata (Nov 2026 – Present): https://www.trimata.lt/. Build Trimata (Vilnius): interactive 3D product configurators, 3D product views with AR, and 3D visualisation for manufacturers and e-shops.
 - Full-Stack Engineer, Bonder (Aug 2026 – Oct 2026): https://bonder.lt/. Designed, built and launched an events platform for Vilnius and its native iOS app (live on the App Store since Oct 2026).
 - Builder, Lost Astronaut (Aug 2026 – Oct 2026): https://lostastronaut.space/. Builder at Lost Astronaut, a venture investor and venture builder that develops startup concepts in-house and backs founders.
 - Resident, Network School (May 2026 – Jul 2026): https://ns.com/. Spent two months at Network School, the startup society for builders and techno-optimists founded by Balaji Srinivasan.
@@ -31,7 +31,7 @@ Before founding his own products he worked as a software engineer at Danske Bank
 
 ## Projects
 - [Bonder: Events Platform & iOS App](https://udevelops.com/project/bonder/): Bonder (bonder.lt) is an events discovery platform for Vilnius: a web app plus a native iOS app on the App Store. I designed, built and grew it solo, from the backend and event import pipeline to SEO and the App Store release. 12.7k unique visitors, 205 registered accounts and 1,068 events listed in its first three months.
-- [Trimata: Interactive 3D Product Configurators](https://udevelops.com/project/trimata/): Trimata (trimata.lt) is the company I founded in November 2026. We build browser-based 3D configurators for makers of saunas, kitchens, doors, roofing and decks: buyers choose size, colours and add-ons, see the price, and send a precise specification.
+- [Trimata: Interactive 3D Product Configurators](https://udevelops.com/project/trimata/): Trimata (trimata.lt) is my 3D product studio, started in November 2026. I build browser-based 3D configurators for makers of saunas, kitchens, doors, roofing and decks: buyers choose size, colours and add-ons, see the price, and send a precise specification.
 - [Embeddable AI Chatbot Widget](https://udevelops.com/project/chatbot-widget/): A multi-tenant AI chatbot platform businesses embed on their site to handle support conversations and hand off to a human the moment the bot shouldn't be guessing. Built for Starkodas.
 - [Real-Time Radio Network & Emergency Services Management Console](https://udevelops.com/project/radio-network-console/): A comprehensive fleet and network management console built for PMR/TETRA radio network operators and emergency services. Combines asset administration with real-time monitoring of GPS positions, signal strength, and device status across an entire radio network, all rendered on interactive maps.
 - [Coca-Cola Lottery Web App](https://udevelops.com/project/cocacola-lottery/): A lottery web application built for official Coca-Cola Lithuania client. Developed with React, TypeScript, and Vite, featuring a fast, responsive interface and secure functionality for managing lottery entries.
