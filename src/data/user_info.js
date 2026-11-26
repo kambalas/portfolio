@@ -4,27 +4,27 @@ const info = {
     name: 'Ugnius Motiejunas',
     nameNative: 'Ugnius Motiejūnas',
     description:
-      'Full-Stack AI Engineer and founder of Trimata. I deliver production-grade systems and products end to end: from banking microservices at Danske Bank to Bonder, an events platform and iOS app with 12.7k visitors, and Trimata, a studio building interactive 3D product configurators.',
-    role: 'Full-Stack AI Engineer & Founder',
-    shortRole: 'AI Engineer · Founder',
+      'Full-Stack AI Engineer. I deliver production-grade systems and products end to end: from banking microservices at Danske Bank to Bonder, an events platform and iOS app with 12.7k visitors, and Trimata, interactive 3D product configurators for manufacturers.',
+    role: 'Full-Stack AI Engineer',
+    shortRole: 'AI Engineer',
     location: 'Vilnius, Lithuania',
     photo: 'photo.webp',
     email: 'motiejunasugnius@gmail.com',
     // Plain, factual third-person bio. Search engines and AI assistants quote
     // this kind of text verbatim, so keep every claim true and specific.
     bio: [
-      'Ugnius Motiejunas (Ugnius Motiejūnas) is a full-stack AI engineer from Vilnius, Lithuania, and the founder of Trimata (trimata.lt), a company that builds interactive 3D product configurators and 3D visualisations for manufacturers and online shops.',
+      'Ugnius Motiejunas (Ugnius Motiejūnas) is a full-stack AI engineer from Vilnius, Lithuania. He builds Trimata (trimata.lt), interactive 3D product configurators and 3D visualisations for manufacturers and online shops.',
       'He built Bonder (bonder.lt), an events discovery platform for Vilnius with a native iOS app on the App Store, which reached 12.7k unique visitors and 200+ registered accounts within its first three months.',
-      'Before founding his own products he worked as a software engineer at Danske Bank (C#/.NET microservices, Kafka, Kubernetes) and Nordics Software (Go, React), and interned at Swedbank and Ruptela. In 2026 he spent two months at Network School and three months as a Builder at Lost Astronaut, a venture builder. He holds a BSc in Software Engineering from Vilnius University.',
+      'Earlier he worked as a software engineer at Danske Bank (C#/.NET microservices, Kafka, Kubernetes) and Nordics Software (Go, React), and interned at Swedbank and Ruptela. In 2026 he spent two months at Network School and three months as a Builder at Lost Astronaut, a venture builder. He holds a BSc in Software Engineering from Vilnius University.',
     ],
   },
 
   // ============ SITE / SEO ============
   site: {
     url: 'https://udevelops.com',
-    title: 'Ugnius Motiejunas | Full-Stack AI Engineer, Founder of Trimata',
+    title: 'Ugnius Motiejunas | Full-Stack AI Engineer, Vilnius',
     description:
-      'Ugnius Motiejunas is a full-stack AI engineer from Vilnius and founder of Trimata (3D product configurators). Built Bonder, an events platform and iOS app. Ex-Danske Bank, Network School, Lost Astronaut.',
+      'Ugnius Motiejunas is a full-stack AI engineer from Vilnius. Builds Trimata 3D product configurators and built Bonder, an events platform and iOS app. Ex-Danske Bank, Network School, Lost Astronaut.',
     knowsAbout: [
       'Full-stack development',
       'AI agents and LLM applications',
@@ -123,7 +123,7 @@ const info = {
     {
       title: 'Trimata: Interactive 3D Product Configurators',
       description:
-        'Trimata (trimata.lt) is the company I founded in November 2026. We build browser-based 3D configurators for makers of saunas, kitchens, doors, roofing and decks: buyers choose size, colours and add-ons, see the price, and send a precise specification.',
+        'Trimata (trimata.lt) is my 3D product studio, started in November 2026. I build browser-based 3D configurators for makers of saunas, kitchens, doors, roofing and decks: buyers choose size, colours and add-ons, see the price, and send a precise specification.',
       technologies: 'Three.js, WebGL, Blender, Next.js, TypeScript, PostHog, Railway',
       github: '',
       link: 'https://www.trimata.lt/',
@@ -377,13 +377,13 @@ const info = {
   // ============ EXPERIENCE ============
   experience: [
     {
-      position: 'Founder',
+      position: '3D & Full-Stack Engineer',
       company: 'Trimata',
       url: 'https://www.trimata.lt/',
       duration: 'Nov 2026 – Present',
       image: 'trimata.webp',
       descriptions: [
-        'Founded Trimata, MB in Vilnius: interactive 3D product configurators, 3D product views with AR, and 3D visualisation for manufacturers and e-shops.',
+        'Build Trimata (Vilnius): interactive 3D product configurators, 3D product views with AR, and 3D visualisation for manufacturers and e-shops.',
         'Built live Three.js configurators for kitchens, saunas, doors, roofing and decks, embeddable on client sites with one line of code.',
         'Run sales, pricing, pilots with first clients, and the site with 100+ programmatic SEO pages.',
       ],

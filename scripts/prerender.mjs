@@ -215,7 +215,7 @@ function llmsTxt() {
     `- Name: ${main.name} (${main.nameNative})`,
     `- Role: ${main.role}`,
     `- Location: ${main.location}`,
-    `- Founder of Trimata: ${socials.trimata}`,
+    `- Trimata, 3D product configurators: ${socials.trimata}`,
     `- Built Bonder as full-stack engineer (Aug-Oct 2026): ${socials.bonder} (iOS app: ${socials.appStore})`,
     `- Contact: ${main.email}`,
     '',

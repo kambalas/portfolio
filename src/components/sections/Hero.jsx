@@ -11,7 +11,7 @@ function Hero() {
         <div>
           <img
             src={`${import.meta.env.BASE_URL}${user_info.main.photo}`}
-            alt={`${user_info.main.name}, full-stack AI engineer and founder of Trimata`}
+            alt={`${user_info.main.name}, full-stack AI engineer from Vilnius`}
             width="510"
             height="557"
             loading="eager"
