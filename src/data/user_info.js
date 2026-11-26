@@ -14,7 +14,7 @@ const info = {
     // this kind of text verbatim, so keep every claim true and specific.
     bio: [
       'Ugnius Motiejunas (Ugnius Motiejūnas) is a full-stack AI engineer from Vilnius, Lithuania, and the founder of Trimata (trimata.lt), a company that builds interactive 3D product configurators and 3D visualisations for manufacturers and online shops.',
-      'He built and runs Bonder (bonder.lt), an events discovery platform for Vilnius with a native iOS app on the App Store, which reached 12.7k unique visitors and 200+ registered accounts within its first three months.',
+      'He built Bonder (bonder.lt), an events discovery platform for Vilnius with a native iOS app on the App Store, which reached 12.7k unique visitors and 200+ registered accounts within its first three months.',
       'Before founding his own products he worked as a software engineer at Danske Bank (C#/.NET microservices, Kafka, Kubernetes) and Nordics Software (Go, React), and interned at Swedbank and Ruptela. In 2026 he spent two months at Network School and three months as a Builder at Lost Astronaut, a venture builder. He holds a BSc in Software Engineering from Vilnius University.',
     ],
   },
@@ -90,7 +90,7 @@ const info = {
       image: 'projects/bonder.webp',
       slug: 'bonder',
       details:
-        'Bonder is a product I founded and shipped end to end. People find what is on in Vilnius today, RSVP, see who else is going and buy tickets; organisers create events and invite friends. Behind it is a pipeline that scrapes and imports events from ticketing sites and venues, deduplicates them with an LLM, and publishes SEO landing pages for seasons, venues and dates. The native iOS app passed App Store review and launched on 29 October 2026. Numbers below are from PostHog and the production database, September to November 2026.',
+        'Bonder is a product I built and shipped end to end as its full-stack engineer. People find what is on in Vilnius today, RSVP, see who else is going and buy tickets; organisers create events and invite friends. Behind it is a pipeline that scrapes and imports events from ticketing sites and venues, deduplicates them with an LLM, and publishes SEO landing pages for seasons, venues and dates. The native iOS app passed App Store review and launched on 29 October 2026. Numbers below are from PostHog and the production database, September to November 2026.',
       stats: [
         { value: '12.7k', label: 'unique visitors' },
         { value: '205', label: 'registered accounts' },
@@ -389,10 +389,12 @@ const info = {
       ],
     },
     {
-      position: 'Founder & Full-Stack Engineer',
+      position: 'Full-Stack Engineer',
       company: 'Bonder',
       url: 'https://bonder.lt/',
-      duration: 'Sep 2026 – Present',
+      duration: 'Aug 2026 – Oct 2026',
+      startDate: '2026-08',
+      endDate: '2026-10',
       image: 'bonder.webp',
       descriptions: [
         'Designed, built and launched an events platform for Vilnius and its native iOS app (live on the App Store since Oct 2026).',
@@ -534,7 +536,7 @@ const info = {
     },
     {
       value: '2',
-      label: 'Products Founded',
+      label: 'Products Shipped',
       description: 'Bonder (bonder.lt) and Trimata (trimata.lt), both live.',
     },
   ],

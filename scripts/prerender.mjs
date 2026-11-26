@@ -64,7 +64,7 @@ function personNode() {
     homeLocation: { '@type': 'Place', name: main.location },
     knowsAbout: site.knowsAbout,
     alumniOf: education.map((e) => ({ '@type': 'CollegeOrUniversity', name: e.school })),
-    worksFor: [{ '@id': ORG_IDS.Trimata }, { '@id': ORG_IDS.Bonder }],
+    worksFor: [{ '@id': ORG_IDS.Trimata }],
     memberOf,
     sameAs: [socials.github, socials.linkedin, socials.upwork.split('?')[0]].filter(Boolean),
   };
@@ -90,7 +90,6 @@ function organizationNodes() {
       name: 'Bonder',
       url: info.socials.bonder,
       description: 'Events discovery platform and iOS app for Vilnius.',
-      founder: { '@id': PERSON_ID },
     },
     {
       '@type': 'MobileApplication',
@@ -217,7 +216,7 @@ function llmsTxt() {
     `- Role: ${main.role}`,
     `- Location: ${main.location}`,
     `- Founder of Trimata: ${socials.trimata}`,
-    `- Founder of Bonder: ${socials.bonder} (iOS app: ${socials.appStore})`,
+    `- Built Bonder as full-stack engineer (Aug-Oct 2026): ${socials.bonder} (iOS app: ${socials.appStore})`,
     `- Contact: ${main.email}`,
     '',
     '## Experience',
