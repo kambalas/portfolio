@@ -525,7 +525,7 @@ const info = {
   // ============ METRICS ============
   metrics: [
     {
-      value: '5',
+      value: '20+',
       label: 'Projects Completed',
       description: 'Production-grade apps shipped to clients.',
     },
